@@ -10,6 +10,12 @@
 get_header();
 ?>
 
+	<?php
+		if ( function_exists('yoast_breadcrumb') && !is_front_page()) {
+			yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+		}
+	?>
+
 	<main id="primary" class="site-main">
 
 		<section class="error-404 not-found">

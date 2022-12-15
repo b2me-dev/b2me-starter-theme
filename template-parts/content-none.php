@@ -9,6 +9,12 @@
 
 ?>
 
+<?php
+	if ( function_exists('yoast_breadcrumb') && !is_front_page()) {
+  		yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+	}
+?>
+
 <section class="no-results not-found">
 	<header class="page-header">
 		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'b2me-master-theme' ); ?></h1>

@@ -9,6 +9,12 @@
 
 ?>
 
+<?php
+	if ( function_exists('yoast_breadcrumb') && !is_front_page()) {
+  		yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+	}
+?>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php

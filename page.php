@@ -14,6 +14,9 @@
 
 get_header();
 ?>
+	<div class="b2-ip-banner">
+		<canvas width="1920" height="350"></canvas>
+	</div>
 
 	<main id="primary" class="site-main">
 
@@ -34,5 +37,4 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();
