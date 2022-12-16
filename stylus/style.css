@@ -625,6 +625,22 @@ table tbody td {
 .b2-partners .b2-partners-slide .b2-partners-item a img.dark {
   filter: brightness(0);
 }
+.page .b2-sitemap {
+  line-height: 1.5;
+  list-style: disc;
+  margin-left: 32px;
+}
+.page .b2-sitemap > li {
+  margin-bottom: 8px;
+}
+.page .b2-sitemap > li > a {
+  margin-bottom: 12px;
+}
+.page .b2-sitemap ul {
+  list-style: disc;
+  padding-left: 16px;
+  margin: 8px 0 0 0;
+}
 header ul {
   margin: 0;
   padding: 0;

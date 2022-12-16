@@ -18,6 +18,7 @@
 			add_shortcode('b2-banner-image', array($this, 'bannerimage'));
 			add_shortcode('b2-partners-slider', array($this, 'partners'));
 			add_shortcode('b2-partners-logo', array($this, 'partnerslogo'));
+			add_shortcode('b2-sitemap', array($this, 'sitemap'));
 		}
 
 		public function section($attr, $content = null) {
@@ -367,6 +368,52 @@
 					</a>
 				</div>
 			</div>';
+	
+			return $html;
+		}
+
+		public function sitemap($attr) {
+			// Options
+			$attr = shortcode_atts(array(
+				'hide-pages' => '',
+			), $attr);
+
+			$list = '';
+  			$pages = get_pages();
+			$hide_arr = explode(',', $attr['hide-pages']);
+
+  			foreach ( $pages as $page ) {
+				$children = get_pages( array( 'child_of' => $page->ID ) );
+				$children_count = count($children);
+				$sub_list = '';
+				$child_pages = '';
+
+				if ($children_count > 0) {
+					foreach ( $children as $sub_page ) {
+						$sub_list .= '<li data-page-id="'. $sub_page->ID .'">
+							<a href="' . get_page_link( $sub_page->ID ) . '" title="'. $sub_page->post_title .'">'. $sub_page->post_title .'</a>
+						</li>';
+					}
+
+					$child_pages = '<ul class="b2-sitemap-child">
+						'. $sub_list .'
+					</ul>';
+				}
+
+				if (!in_array($page->ID, $hide_arr)) {
+					if (!$page->post_parent) {
+						$list .= '<li data-page-id="'. $page->ID .'">
+							<a href="' . get_page_link( $page->ID ) . '" title="'. $page->post_title .'">'. $page->post_title .'</a>
+							'. $child_pages .'
+						</li>';
+					}
+				}
+  			}
+
+			// Construct HTML
+			$html = '<ul class="b2-sitemap">
+				'. $list .'
+			</ul>';
 	
 			return $html;
 		}
