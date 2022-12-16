@@ -18,6 +18,7 @@
 			add_shortcode('b2-banner-image', array($this, 'bannerimage'));
 			add_shortcode('b2-partners-slider', array($this, 'partners'));
 			add_shortcode('b2-partners-logo', array($this, 'partnerslogo'));
+			add_shortcode('b2-faq-item', array($this, 'faq'));
 			add_shortcode('b2-sitemap', array($this, 'sitemap'));
 		}
 
@@ -367,6 +368,51 @@
 						<img src="'. $attr['src'] .'" alt="'. $attr['company'] .'" class="b2-img-responsive '. $attr['class'] .'">
 					</a>
 				</div>
+			</div>';
+	
+			return $html;
+		}
+
+		public function faq($attr, $content = null) {
+			// Options
+			$attr = shortcode_atts(array(
+				'class' => '',
+				'question' => '',
+				'animate' => '',
+				'animate-duration' => '',
+			), $attr);
+
+			$element_animate = '';
+			// Check if has animation
+			if ($attr['animate'] != '') {
+				$element_animate = 'data-aos="'. $attr['animate'] .'" data-aos-once="true" data-aos-duration="'. $attr['animate-duration'] .'"';
+			}
+
+			$stripped_content = strip_tags($content);
+	
+			// Construct HTML
+			$html = '<div class="b2-faq-item '. $attr['class'] .' '. $element_animate .'">
+				<div class="b2-faq-item-q tab-close">
+					<p>'. $attr['question'] .'</p>
+					<i class="fa-solid fa-angle-up"></i>
+				</div>
+				<div class="b2-faq-item-a">
+					'. $content .'
+				</div>
+				<script type="application/ld+json">
+					{
+						"@context": "https://schema.org",
+						"@type": "FAQPage",
+						"mainEntity": {
+							"@type": "Question",
+							"name": "'. $attr['question'] .'",
+							"acceptedAnswer": {
+							"@type": "Answer",
+							"text": "'. $stripped_content .'"
+							}
+						}
+					}
+				</script>
 			</div>';
 	
 			return $html;

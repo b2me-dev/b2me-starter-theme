@@ -720,4 +720,36 @@ table
 		padding-left: 16px
 		margin: 8px 0 0 0
 
+.b2-faq-item
+	position relative
+	margin-bottom: 30px
+
+	.b2-faq-item-q
+		position relative
+		background-color: #fff
+		border-radius: 6px
+		padding: 16px
+		cursor: pointer
+		box-shadow: 0 0 12px #ddd
+		transition: all .4s ease-in-out
+
+		&.tab-close
+			i
+				transform: rotate(180deg);
+				transform-origin: 6px 4px
+
+		&:hover
+			opacity .8
+
+		i
+			position absolute
+			top: 50%
+			right: 16px
+			transform: translateY(-50%)
+		
+	.b2-faq-item-a
+		display: none
+		padding: 16px
+
+
 /* ------------- End: Shortcode ------------- */

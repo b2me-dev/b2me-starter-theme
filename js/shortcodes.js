@@ -4,6 +4,7 @@
 		initialize: function() {
 			this.homepageSlideshow();
 			this.partners();
+			this.faqs();
 		},
 		homepageSlideshow: function() {
 			var slider = jQuery('.b2-hp-banner-slide'),
@@ -77,6 +78,25 @@
                 ]
             });
 		},
+		faqs: function() {
+			var item = jQuery('.b2-faq-item-q');
+
+			item.click(function() {
+				var close_state = jQuery(this).hasClass('tab-close');
+
+				// Close all active items
+				item.next().slideUp();
+				item.addClass('tab-close');
+
+				if (close_state) { // Open item
+					jQuery(this).next().slideDown();
+					jQuery(this).removeClass('tab-close');
+				} else {
+					jQuery(this).next().slideUp();
+					jQuery(this).addClass('tab-close');
+				}
+			});
+		}
 	}
 
 	jQuery(document).ready(function() {
