@@ -465,33 +465,31 @@
 
 					$blogs .= '<div class="b2-col col-3">
 						<div class="b2-blog-item">
-							<div class="b2-blog-item">
-								<a href="'. $link .'" title="'. $title .'">
-									'. $image_element .'
-									<div class="b2-blog-item-details">
-										<h3>'. $title .'</h3>
-										<p>'. $content .'...</p>
-										<span class="b2-link">Read Article</span>
-									</div>
-								</a>
-							</div>
-							<script type="application/ld+json">
-								{
-									"@context": "https://schema.org",
-									"@type": "BlogPosting",
-									"mainEntityOfPage": {
-										"@type": "WebPage",
-										"@id": "'. $link .'"
-									},
-									"headline": "'. $title .'",
-									"description": "'. $content .'",
-									"image": [
-										"'. $featured_img_url .'"
-									],  
-									"datePublished": "'. $post_date .'"
-								}
-							</script>
+							<a href="'. $link .'" title="'. $title .'">
+								'. $image_element .'
+								<div class="b2-blog-item-details">
+									<h3>'. $title .'</h3>
+									<p>'. $content .'...</p>
+									<span class="b2-link">Read Article</span>
+								</div>
+							</a>
 						</div>
+						<script type="application/ld+json">
+							{
+								"@context": "https://schema.org",
+								"@type": "BlogPosting",
+								"mainEntityOfPage": {
+									"@type": "WebPage",
+									"@id": "'. $link .'"
+								},
+								"headline": "'. $title .'",
+								"description": "'. $content .'",
+								"image": [
+									"'. $featured_img_url .'"
+								],  
+								"datePublished": "'. $post_date .'"
+							}
+						</script>
 					</div>';
 
 				endwhile;
