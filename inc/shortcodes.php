@@ -19,6 +19,7 @@
 			add_shortcode('b2-partners-slider', array($this, 'partners'));
 			add_shortcode('b2-partners-logo', array($this, 'partnerslogo'));
 			add_shortcode('b2-faq-item', array($this, 'faq'));
+			add_shortcode('b2-blogs', array($this, 'blogs'));
 			add_shortcode('b2-sitemap', array($this, 'sitemap'));
 		}
 
@@ -413,6 +414,94 @@
 						}
 					}
 				</script>
+			</div>';
+	
+			return $html;
+		}
+
+		public function blogs($attr) {
+			// Options
+			$attr = shortcode_atts(array(
+				'class' => '',
+				'limit' => '',
+				'category' => '',
+				'show-image' => '',
+				'excerpt-limit' => '',
+				'animate' => '',
+				'animate-duration' => '',
+			), $attr);
+
+			$element_animate = '';
+			// Check if has animation
+			if ($attr['animate'] != '') {
+				$element_animate = 'data-aos="'. $attr['animate'] .'" data-aos-once="true" data-aos-duration="'. $attr['animate-duration'] .'"';
+			}
+
+			// Query
+			$query = new WP_Query([
+				'post_type' => 'post',
+				'posts_per_page' => $attr['limit'],
+				'category_name' => $attr['category'],
+			]);
+
+			$blogs = '';
+
+			if ( $query->have_posts() ) :
+				while ( $query->have_posts() ) :
+					$query->the_post();
+
+					$title = get_the_title();
+					$featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
+					$image_element = '';
+					$content = substr(strip_tags(get_the_content()), 0, $attr['excerpt-limit']);
+					$link = get_the_permalink();
+					$post_date = get_the_date( 'Y M j' );
+
+					if ($attr['show-image'] == 'yes') {
+						$image_element = '<div class="b2-blog-item-image" '. $element_animate .'>
+							<canvas height="200" style="background-image: url('. $featured_img_url .')"></canvas>
+						</div>';
+					}
+
+					$blogs .= '<div class="b2-col col-3">
+						<div class="b2-blog-item">
+							<div class="b2-blog-item">
+								<a href="'. $link .'" title="'. $title .'">
+									'. $image_element .'
+									<div class="b2-blog-item-details">
+										<h3>'. $title .'</h3>
+										<p>'. $content .'...</p>
+										<span class="b2-link">Read Article</span>
+									</div>
+								</a>
+							</div>
+							<script type="application/ld+json">
+								{
+									"@context": "https://schema.org",
+									"@type": "BlogPosting",
+									"mainEntityOfPage": {
+										"@type": "WebPage",
+										"@id": "'. $link .'"
+									},
+									"headline": "'. $title .'",
+									"description": "'. $content .'",
+									"image": [
+										"'. $featured_img_url .'"
+									],  
+									"datePublished": "'. $post_date .'"
+								}
+							</script>
+						</div>
+					</div>';
+
+				endwhile;
+			endif;
+	
+			// Construct HTML
+			$html = '<div class="b2-blogs">
+				<div class="b2-row">
+					'. $blogs .'
+				</div>
 			</div>';
 	
 			return $html;

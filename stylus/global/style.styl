@@ -530,7 +530,7 @@ table
 
 .post,
 .page {
-	margin: 0 0 1.5em;
+	margin: 0;
 }
 
 .updated:not(.published) {
@@ -751,5 +751,26 @@ table
 		display: none
 		padding: 16px
 
+.b2-blog-item
+	position relative
+	margin-bottom: 30px
+
+	a
+		display: block
+		color: inherit
+
+		.b2-blog-item-image
+			canvas
+				display: block
+				width 100%
+				background-size: cover
+				background-position: center
+				background-repeat: no-repeat
+
+		.b2-blog-item-details
+			position relative
+
+			span
+				min-width auto
 
 /* ------------- End: Shortcode ------------- */

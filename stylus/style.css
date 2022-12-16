@@ -465,7 +465,7 @@ table tbody td {
 }
 .post,
 .page {
-  margin: 0 0 1.5em;
+  margin: 0;
 }
 .updated:not(.published) {
   display: none;
@@ -670,6 +670,27 @@ table tbody td {
 .b2-faq-item .b2-faq-item-a {
   display: none;
   padding: 16px;
+}
+.b2-blog-item {
+  position: relative;
+  margin-bottom: 30px;
+}
+.b2-blog-item a {
+  display: block;
+  color: inherit;
+}
+.b2-blog-item a .b2-blog-item-image canvas {
+  display: block;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.b2-blog-item a .b2-blog-item-details {
+  position: relative;
+}
+.b2-blog-item a .b2-blog-item-details span {
+  min-width: auto;
 }
 header ul {
   margin: 0;
