@@ -602,6 +602,29 @@ table tbody td {
   border-radius: 50%;
   cursor: pointer;
 }
+.b2-partners {
+  position: relative;
+}
+.b2-partners .b2-partners-slide .b2-partners-item {
+  position: relative;
+  padding: 0 15px;
+}
+.b2-partners .b2-partners-slide .b2-partners-item a {
+  display: block;
+}
+.b2-partners .b2-partners-slide .b2-partners-item a.no-link {
+  pointer-events: none;
+}
+.b2-partners .b2-partners-slide .b2-partners-item a img {
+  max-height: 200px;
+  margin: 0 auto;
+}
+.b2-partners .b2-partners-slide .b2-partners-item a img.light {
+  filter: brightness(0) invert(1);
+}
+.b2-partners .b2-partners-slide .b2-partners-item a img.dark {
+  filter: brightness(0);
+}
 header ul {
   margin: 0;
   padding: 0;

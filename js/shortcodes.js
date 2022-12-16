@@ -3,11 +3,12 @@
 	var shortcode = {
 		initialize: function() {
 			this.homepageSlideshow();
+			this.partners();
 		},
 		homepageSlideshow: function() {
 			var slider = jQuery('.b2-hp-banner-slide'),
 				autoplay = jQuery('.b2-hp-banner-slide').data('autoplay'),
-				autoplay_settings = false;
+				autoplay_settings = false,
 				speed = jQuery('.b2-hp-banner-slide').data('speed'),
 				speed_settings = speed + '000',
 				fade = jQuery('.b2-hp-banner-slide').data('fade'),
@@ -43,6 +44,37 @@
 				dots: dots_settings,
 				appendDots: '.b2-hp-banner-dots',
 				pauseOnHover: false,
+            });
+		},
+		partners: function() {
+			var slider = jQuery('.b2-partners-slide'),
+				autoplay = jQuery('.b2-partners-slide').data('autoplay'),
+				autoplay_settings = false,
+				speed = jQuery('.b2-partners-slide').data('speed'),
+				speed_settings = speed + '000',
+				slides_to_show = jQuery('.b2-partners-slide').data('slides-to-show');
+
+			// Check if autoplay is added
+			if (autoplay == 'yes') autoplay_settings = true;
+			
+			// Create slider
+            slider.not('.slick-initialized').slick({
+                infinite: true,
+                slidesToShow: slides_to_show,
+                slidesToScroll: 1,
+				fade: false,
+                arrows: false,
+				autoplay: autoplay_settings,
+				autoplaySpeed: speed_settings,
+				pauseOnHover: false,
+				responsive: [
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 2,
+                        }
+                    },
+                ]
             });
 		},
 	}

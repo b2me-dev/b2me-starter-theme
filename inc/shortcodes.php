@@ -16,6 +16,8 @@
 			add_shortcode('b2-phone', array($this, 'phone'));
 			add_shortcode('b2-home-banner', array($this, 'slideshow'));
 			add_shortcode('b2-banner-image', array($this, 'bannerimage'));
+			add_shortcode('b2-partners-slider', array($this, 'partners'));
+			add_shortcode('b2-partners-logo', array($this, 'partnerslogo'));
 		}
 
 		public function section($attr, $content = null) {
@@ -302,6 +304,67 @@
 						'. do_shortcode( $content ) .'
 						<a href="'. $attr['link-url'] .'" title="' . $attr['link-text'] . '" class="b2-link">' . $attr['link-text'] . '</a>
 					</div>
+				</div>
+			</div>';
+	
+			return $html;
+		}
+
+		public function partners($attr, $content = null) {
+			// Options
+			$attr = shortcode_atts(array(
+				'class' => '',
+				'autoplay' => '',
+				'speed' => '',
+				'slides-to-show' => '',
+			), $attr);
+
+			// Construct settings
+			$slider_autoplay = 'data-autoplay="'. $attr['autoplay'] .'"';
+			$slider_speed = 'data-speed="'. $attr['speed'] .'"';
+			$slider_slidestoshow = 'data-slides-to-show="'. $attr['slides-to-show'] .'"';
+	
+			// Construct HTML
+			$html = '<div class="b2-partners">
+				<div class="b2-partners-slide '. $attr['class'] .'" '. $slider_autoplay .' '. $slider_speed .' '. $slider_slidestoshow .'>
+				' . do_shortcode( $content ) . '
+				</div>
+			</div>';
+	
+			return $html;
+		}
+
+		public function partnerslogo($attr) {
+			// Options
+			$attr = shortcode_atts(array(
+				'class' => '',
+				'src' => '',
+				'company' => '',
+				'link' => '',
+				'target' => '',
+			), $attr);
+
+			$element_target = '';
+			$element_link = '#';
+			$element_has_link = 'no-link';
+
+			// Check if has target
+			if ($attr['target'] != '') {
+				$element_target = 'target="'. $attr['target'] .'"';
+			}
+
+			// Check if has link
+			if ($attr['link'] != '#') {
+				$element_has_link = 'has-link';
+				$element_link = $attr['link'];
+			}
+
+			// Construct HTML
+			$html = '<div>
+				<div class="b2-partners-item">
+					<a href="'. $element_link .'" class="'. $element_has_link .'" '. $element_target .'>
+						<img src="'. $attr['src'] .'" alt="'. $attr['company'] .'" class="b2-img-responsive '. $attr['class'] .'">
+					</a>
 				</div>
 			</div>';
 	
