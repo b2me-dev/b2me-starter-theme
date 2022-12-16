@@ -9,6 +9,7 @@
 	- Forms
 	- Helpers
 	- Shortcode Styles
+	- Media Queries
 */
 
 /* ------------- Start: Variables ------------- */
@@ -316,7 +317,13 @@ dd {
 img
 	border-style: none;
 
-.b2-img-responsive
+.post-thumbnail
+	float: left
+	max-width: 300px
+	margin: 0 16px 16px 0
+
+.b2-img-responsive,
+.post-thumbnail img
 	display block
 	max-width: 100%
 	height: auto
@@ -354,6 +361,10 @@ a
 .page-links
 	clear: both;
 	margin: 0 0 1.5em;
+
+.nav-links
+	display: flex
+	justify-content: space-between
 
 /* ------------- End: Links ------------- */
 
@@ -505,6 +516,10 @@ table
 			border: 1px solid #d3d3d3
 
 /* Inner Page */
+.entry-meta
+.entry-footer
+	margin-bottom: 16px
+
 .page-content .wp-smiley,
 .entry-content .wp-smiley,
 .comment-content .wp-smiley
@@ -809,6 +824,11 @@ table
 	.b2-link
 		padding 12px 4px
 
+	form button,
+	form input[type=submit]
+		min-width: auto
+		width 100%
+
 	.b2-hp-banner .b2-hp-banner-slide-item > div
 		text-align: center
 
@@ -822,6 +842,5 @@ table
 		text-align: center
 		max-width: 480px
 		margin: 0 auto
-
 
 /* ------------- Start: Media Queries ------------- */
