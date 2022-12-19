@@ -2,10 +2,19 @@
 <html <?php language_attributes(); ?>>
 	<head>
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="profile" href="https://gmpg.org/xfn/11">
+
+		<!-- Initial Scale -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+		<!-- Google Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+		<!-- Mobile Theme -->
+		<meta name ="theme-color" content ="#7d41d7">
+		<meta name ="msapplication-navbutton-color" content ="#7d41d7">
+
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>
