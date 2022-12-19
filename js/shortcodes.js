@@ -116,7 +116,7 @@
 		mobileHeader: function() {
 			var menu = jQuery('.b2-mh-top-bar-col.col-menu > a'),
 				nav_links = jQuery('#mobilenav'),
-				nav_with_sub = jQuery('.menu-item-has-children > a');
+				nav_with_sub = jQuery('#mobilenav .menu-item-has-children > a');
 
 			menu.click(function(e) {
 				e.preventDefault();

@@ -22,6 +22,7 @@
 			add_shortcode('b2-blogs', array($this, 'blogs'));
 			add_shortcode('b2-sitemap', array($this, 'sitemap'));
 			add_shortcode('b2-social', array($this, 'social'));
+			add_shortcode('b2-stylesheetdirectory', array($this, 'stylesheetdirectory'));
 		}
 
 		public function section($attr, $content = null) {
@@ -590,6 +591,11 @@
 			</a>';
 	
 			return $html;
+		}
+
+		public function stylesheetdirectory() {
+			$theme_dir = get_stylesheet_directory_uri();
+			return $theme_dir;
 		}
 	}
 
