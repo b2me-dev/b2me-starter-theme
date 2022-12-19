@@ -14,6 +14,11 @@
 				</p>
 			</footer>
 		</div>
+		<div class="b2-btt-toggle b2-ease">
+			<a href="#" title="Back To Top" rel="nofollow">
+				<i class="fa-solid fa-angle-up"></i>
+			</a>
+		</div>
 		<?php wp_footer(); ?>
 	</body>
 </html>

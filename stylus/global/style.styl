@@ -378,6 +378,30 @@ a
 	background: accent-color
 	border-radius: 50%
 
+.b2-btt-toggle
+	position: fixed
+	bottom: 30px
+	right: 30px
+	opacity: 0
+	pointer-events: none
+	z-index: 100
+
+	&.is-visible
+		opacity: 1
+		pointer-events: auto
+
+	a
+		position: relative
+		display: inline-block
+		font-size: 18px
+		color: #fff
+		text-align: center
+		width: 50px
+		height: 50px
+		padding: 16px 0
+		background: accent-color
+		border-radius: 50%
+
 /* ------------- End: Links ------------- */
 
 /* ------------- Start: Forms ------------- */

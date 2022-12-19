@@ -103,6 +103,8 @@
 		initialize: function() {
 			this.deadlink();
 			this.mobileHeader();
+			this.backToTop();
+			this.backToTopAppearance();
 		},
 		deadlink: function() {
 			// Remove default behavior of dead links
@@ -147,13 +149,36 @@
 					jQuery(this).parent().find('.sub-menu').slideDown();
 				}
 			});
+		},
+		backToTop: function() {
+			var back_to_top_toggle = jQuery('.b2-btt-toggle a');
+			back_to_top_toggle.click(function(e) {
+				e.preventDefault();
 
+				jQuery("html, body").animate({ // Animate scroll
+					scrollTop: 0
+				});
+				
+			});
+		},
+		backToTopAppearance: function() {
+			var back_to_top_toggle = jQuery('.b2-btt-toggle');
+
+			if (jQuery(window).scrollTop() >= 500) { // Show toggle on user scroll
+				back_to_top_toggle.addClass('is-visible');
+			} else { // Hide toggle on user scroll
+				back_to_top_toggle.removeClass('is-visible'); 
+			}
 		}
 	}
 
 	jQuery(document).ready(function() {
 		shortcode.initialize();
 		helpers.initialize();
+	});
+
+	jQuery(window).scroll(function() {
+		helpers.backToTopAppearance();
 	});
 
 }());
