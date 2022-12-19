@@ -707,56 +707,37 @@ table tbody td {
 .b2-blog-item a .b2-blog-item-details span {
   min-width: auto;
 }
-@media only screen and (max-width: 991px) {
-  h1 {
-    font-size: 44px;
-  }
-  h2 {
-    font-size: 24px;
-  }
-  h3 {
-    font-size: 20px;
-  }
-  h4,
-  h5,
-  h6 {
-    font-size: 16px;
-  }
-  section {
-    padding: 32px 0;
-  }
-  .b2-inner-content {
-    max-width: 100%;
-  }
-  .b2-row {
-    display: block;
-  }
-  .b2-row .b2-col {
-    width: 100% !important;
-    margin-bottom: 16px;
-  }
-  .b2-link {
-    padding: 12px 4px;
-  }
-  form button,
-  form input[type=submit] {
-    min-width: auto;
-    width: 100%;
-  }
-  .b2-hp-banner .b2-hp-banner-slide-item > div {
-    text-align: center;
-  }
-  .b2-hp-banner .b2-hp-banner-slide-item p {
-    font-size: 12px;
-  }
-  .b2-hp-banner .b2-hp-banner-dots {
-    bottom: 18px;
-  }
-  .b2-blog-item {
-    text-align: center;
-    max-width: 480px;
-    margin: 0 auto;
-  }
+.b2-mh-wrap {
+  font-size: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 12px 16px;
+  background-color: #fff;
+  box-shadow: 0 0 12px #6c6c6c;
+}
+.b2-mh-wrap .b2-mh-top-bar-col {
+  display: inline-block;
+  vertical-align: middle;
+  width: 50%;
+}
+.b2-mh-wrap .b2-mh-top-bar-col.col-logo img {
+  max-height: 83px;
+}
+.b2-mh-wrap .b2-mh-top-bar-col.col-menu a {
+  font-size: 19px;
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 0;
+  background-color: #7d41d7;
+  border-radius: 50%;
+  margin-left: auto;
 }
 header ul {
   margin: 0;
@@ -819,4 +800,61 @@ body {
 h1.entry-title {
   font-size: 64px;
   text-transform: uppercase;
+}
+@media only screen and (max-width: 991px) {
+  .home main#primary,
+  body:not(.home) div#page {
+    padding: 100px 0 0 !important;
+  }
+  h1,
+  h1.entry-title {
+    font-size: 44px;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+  h4,
+  h5,
+  h6 {
+    font-size: 16px;
+  }
+  section {
+    padding: 32px 0;
+  }
+  .b2-inner-content,
+  main#primary {
+    max-width: 100%;
+  }
+  .b2-row {
+    display: block;
+  }
+  .b2-row .b2-col {
+    width: 100% !important;
+    margin-bottom: 16px;
+  }
+  .b2-link {
+    padding: 12px 4px;
+  }
+  form button,
+  form input[type=submit] {
+    min-width: auto;
+    width: 100%;
+  }
+  .b2-hp-banner .b2-hp-banner-slide-item > div {
+    text-align: center;
+  }
+  .b2-hp-banner .b2-hp-banner-slide-item p {
+    font-size: 12px;
+  }
+  .b2-hp-banner .b2-hp-banner-dots {
+    bottom: 18px;
+  }
+  .b2-blog-item {
+    text-align: center;
+    max-width: 480px;
+    margin: 0 auto;
+  }
 }

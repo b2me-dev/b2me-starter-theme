@@ -2,9 +2,17 @@
 
 	var shortcode = {
 		initialize: function() {
+			this.helpers();
 			this.homepageSlideshow();
 			this.partners();
 			this.faqs();
+		},
+		helpers: function() {
+			// Remove default behavior of dead links
+			var dead_links = jQuery('a[href="#"]');
+			dead_links.click(function(e) {
+				e.preventDefault();
+			});
 		},
 		homepageSlideshow: function() {
 			var slider = jQuery('.b2-hp-banner-slide'),

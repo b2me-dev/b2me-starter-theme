@@ -12,8 +12,26 @@
 		<?php wp_body_open(); ?>
 		<div id="page" class="site">
 			<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'b2me-master-theme' ); ?></a>
-			<header id="masthead" class="site-header">
-				<h1 class="b2-primary-font"><?= get_bloginfo(); ?></h1>
+
+			<div class="b2-mh-wrap b2-hide-desktop">
+				<div class="b2-mh-top-bar">
+					<div class="b2-mh-top-bar-col col-logo">
+						<a href="<?= get_site_url(); ?>" title="<?= get_bloginfo(); ?>">
+							<img src="<?= get_stylesheet_directory_uri(); ?>/images/global/site-logo.png" alt="<?= get_bloginfo(); ?>" class="b2-img-responsive">
+						</a>
+					</div>
+					<div class="b2-mh-top-bar-col col-menu">
+						<a href="#" title="Menu">
+							<i class="fa-solid fa-bars"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<header id="masthead" class="b2-hide-mobile">
+				<a href="<?= get_site_url(); ?>" title="<?= get_bloginfo(); ?>">
+					<img src="<?= get_stylesheet_directory_uri(); ?>/images/global/site-logo.png" alt="<?= get_bloginfo(); ?>" class="b2-img-responsive">
+				</a>
 				<nav class="main-navigation">
 					<?php
 						wp_nav_menu(
