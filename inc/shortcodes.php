@@ -22,6 +22,7 @@
 			add_shortcode('b2-blogs', array($this, 'blogs'));
 			add_shortcode('b2-sitemap', array($this, 'sitemap'));
 			add_shortcode('b2-social', array($this, 'social'));
+			add_shortcode('b2-sitename', array($this, 'sitename'));
 			add_shortcode('b2-stylesheetdirectory', array($this, 'stylesheetdirectory'));
 		}
 
@@ -591,6 +592,11 @@
 			</a>';
 	
 			return $html;
+		}
+
+		public function sitename() {
+			$site_name = get_bloginfo();
+			return $site_name;
 		}
 
 		public function stylesheetdirectory() {

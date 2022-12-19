@@ -383,7 +383,7 @@ button,
 }
 form input[type=text],
 form input[type=email],
-form input[type=phone],
+form input[type=tel],
 form input[type=url],
 form input[type=search],
 form select,
@@ -391,6 +391,7 @@ form textarea {
   appearance: none;
   outline: none;
   display: block;
+  font-family: 'Oxygen', sans-serif;
   width: 100%;
   height: 32px;
   padding: 0 8px;
@@ -846,6 +847,66 @@ table tbody td {
 }
 .b2-about-template img {
   max-width: 800px;
+}
+.b2-contact-details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.b2-contact-details li {
+  margin-bottom: 8px;
+}
+.b2-contact-details li i {
+  font-size: 16px;
+  color: #000;
+}
+.b2-contact-details li a {
+  font-size: 16px;
+  color: #000;
+}
+.b2-contact-form {
+  font-size: 0;
+  position: relative;
+}
+.b2-contact-form p {
+  margin: 0;
+}
+.b2-contact-form br {
+  display: none;
+}
+.b2-contact-form form.wpcf7-form > p {
+  display: none;
+}
+.b2-contact-form .b2-contact-form-field {
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 16px;
+}
+.b2-contact-form .b2-contact-form-field.half {
+  width: 50%;
+}
+.b2-contact-form .b2-contact-form-field.half.pad-left {
+  padding-left: 8px;
+}
+.b2-contact-form .b2-contact-form-field.half.pad-right {
+  padding-right: 8px;
+}
+.b2-contact-form .b2-contact-form-field.full {
+  width: 100%;
+}
+.b2-contact-form span.wpcf7-not-valid-tip {
+  font-size: 12px;
+  width: auto !important;
+  position: absolute !important;
+  top: 4px !important;
+  left: 0 !important;
+}
+.b2-contact-form .wpcf7-response-output {
+  position: absolute;
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  margin: 0 !important;
 }
 header ul {
   margin: 0;

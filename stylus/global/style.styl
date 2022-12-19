@@ -436,7 +436,7 @@ button,
 form
 	input[type=text],
 	input[type=email],
-	input[type=phone],
+	input[type=tel],
 	input[type=url],
 	input[type=search],
 	select,
@@ -444,6 +444,7 @@ form
 		appearance: none
 		outline: none
 		display: block
+		font-family: paragraph-font
 		width 100%
 		height: 32px
 		padding: 0 8px
@@ -935,4 +936,65 @@ table
 
 	img
 		max-width: 800px
+
+.b2-contact-details
+	list-style none
+	padding: 0
+	margin: 0
+
+	li
+		margin-bottom: 8px
+
+		i
+			font-size: 16px
+			color: #000
+		
+		a
+			font-size: 16px
+			color: #000
+
+.b2-contact-form
+	font-size: 0
+	position relative
+
+	p
+		margin: 0
+
+	br
+		display: none
+
+	form.wpcf7-form > p
+		display: none
+
+	.b2-contact-form-field
+		display: inline-block
+		vertical-align: top
+		margin-bottom: 16px
+
+		&.half
+			width 50%
+
+			&.pad-left
+				padding-left: 8px
+
+			&.pad-right
+				padding-right: 8px
+
+		&.full
+			width 100%
+
+	span.wpcf7-not-valid-tip
+		font-size: 12px
+		width: auto !important
+		position: absolute !important
+		top: 4px !important
+		left: 0 !important
+
+	.wpcf7-response-output
+		position: absolute
+		width: 100%
+		font-size: 12px
+		text-align: center
+		margin: 0 !important
+
 /* ------------- End: Templates ------------- */
