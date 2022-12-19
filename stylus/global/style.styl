@@ -10,7 +10,6 @@
 	- Helpers
 	- Mobile Header
 	- Shortcode
-	- Media Queries
 */
 
 /* ------------- Start: Variables ------------- */
@@ -814,11 +813,11 @@ table
 				max-height: 83px
 
 		&.col-menu
-			a
+			> a
 				font-size: 19px
 				color: #fff
-				width: 44px
-				height: 44px
+				width: 50px
+				height: 50px
 				display: flex
 				align-items: center
 				justify-content: center
@@ -826,6 +825,67 @@ table
 				background-color: #7d41d7
 				border-radius: 50%
 				margin-left: auto
+
+			#mobilenav
+				position absolute
+				top: 100%
+				left: 0
+				width 100%
+				padding: 0
+				background-color: #fff
+				display: none
+
+				> li
+					background-color: #fff
+
+					&:nth-child(odd)
+						background-color: #f3f3f3
+
+					&.menu-item-has-children > a::after
+						content: "\f106"
+						font-family: "Font Awesome 6 Free"
+						font-size: 20px
+						font-weight: 900;
+						color: accent-color
+						position absolute
+						top: 50%
+						right: 16px
+						transform: translateY(-50%) rotate(180deg)
+
+					> a
+						position relative
+						display: block
+						font-size: 16px
+						color: #000
+						text-align: center
+						padding: 16px 0
+
+						&.active-link
+							color: #fff
+							background-color: accent-color
+							opacity 1
+
+							&::after
+								color: #fff
+								transform: translateY(-50%) rotate(0deg)
+
+					.sub-menu
+						display none
+						padding: 0
+
+						li
+							background-color: accent-color
+
+							&:nth-child(odd)
+								opacity .9
+							a
+								position relative
+								display: block
+								font-size: 16px
+								color: #fff
+								text-align: center
+								padding: 16px 0
+
 
 
 /* ------------- End: Mobile Header ------------- */

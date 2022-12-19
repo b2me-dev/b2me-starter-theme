@@ -726,11 +726,11 @@ table tbody td {
 .b2-mh-wrap .b2-mh-top-bar-col.col-logo img {
   max-height: 83px;
 }
-.b2-mh-wrap .b2-mh-top-bar-col.col-menu a {
+.b2-mh-wrap .b2-mh-top-bar-col.col-menu > a {
   font-size: 19px;
   color: #fff;
-  width: 44px;
-  height: 44px;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -738,6 +738,67 @@ table tbody td {
   background-color: #7d41d7;
   border-radius: 50%;
   margin-left: auto;
+}
+.b2-mh-wrap .b2-mh-top-bar-col.col-menu #mobilenav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  padding: 0;
+  background-color: #fff;
+  display: none;
+}
+.b2-mh-wrap .b2-mh-top-bar-col.col-menu #mobilenav > li {
+  background-color: #fff;
+}
+.b2-mh-wrap .b2-mh-top-bar-col.col-menu #mobilenav > li:nth-child(odd) {
+  background-color: #f3f3f3;
+}
+.b2-mh-wrap .b2-mh-top-bar-col.col-menu #mobilenav > li.menu-item-has-children > a::after {
+  content: "\f106";
+  font-family: "Font Awesome 6 Free";
+  font-size: 20px;
+  font-weight: 900;
+  color: #7d41d7;
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%) rotate(180deg);
+}
+.b2-mh-wrap .b2-mh-top-bar-col.col-menu #mobilenav > li > a {
+  position: relative;
+  display: block;
+  font-size: 16px;
+  color: #000;
+  text-align: center;
+  padding: 16px 0;
+}
+.b2-mh-wrap .b2-mh-top-bar-col.col-menu #mobilenav > li > a.active-link {
+  color: #fff;
+  background-color: #7d41d7;
+  opacity: 1;
+}
+.b2-mh-wrap .b2-mh-top-bar-col.col-menu #mobilenav > li > a.active-link::after {
+  color: #fff;
+  transform: translateY(-50%) rotate(0deg);
+}
+.b2-mh-wrap .b2-mh-top-bar-col.col-menu #mobilenav > li .sub-menu {
+  display: none;
+  padding: 0;
+}
+.b2-mh-wrap .b2-mh-top-bar-col.col-menu #mobilenav > li .sub-menu li {
+  background-color: #7d41d7;
+}
+.b2-mh-wrap .b2-mh-top-bar-col.col-menu #mobilenav > li .sub-menu li:nth-child(odd) {
+  opacity: 0.9;
+}
+.b2-mh-wrap .b2-mh-top-bar-col.col-menu #mobilenav > li .sub-menu li a {
+  position: relative;
+  display: block;
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  padding: 16px 0;
 }
 header ul {
   margin: 0;

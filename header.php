@@ -24,6 +24,14 @@
 						<a href="#" title="Menu">
 							<i class="fa-solid fa-bars"></i>
 						</a>
+						<?php
+							wp_nav_menu(
+								array(
+									'theme_location' => 'menu-1',
+									'menu_id'        => 'mobilenav',
+								)
+							);
+						?>
 					</div>
 				</div>
 			</div>
