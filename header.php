@@ -12,8 +12,8 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 		<!-- Mobile Theme -->
-		<meta name ="theme-color" content ="#7d41d7">
-		<meta name ="msapplication-navbutton-color" content ="#7d41d7">
+		<meta name="theme-color" content="#7d41d7">
+		<meta name="msapplication-navbutton-color" content="#7d41d7">
 
 		<?php wp_head(); ?>
 	</head>
