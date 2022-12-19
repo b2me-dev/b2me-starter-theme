@@ -21,6 +21,7 @@
 			add_shortcode('b2-faq-item', array($this, 'faq'));
 			add_shortcode('b2-blogs', array($this, 'blogs'));
 			add_shortcode('b2-sitemap', array($this, 'sitemap'));
+			add_shortcode('b2-social', array($this, 'social'));
 		}
 
 		public function section($attr, $content = null) {
@@ -551,6 +552,45 @@
 			return $html;
 		}
 
+		public function social($attr) {
+			// Options
+			$attr = shortcode_atts(array(
+				'class' => '',
+				'platform' => '',
+				'url' => '',
+				'animate' => '',
+				'animate-duration' => '',
+			), $attr);
+
+			$icon = '';
+			switch ($attr['platform']) {
+				case 'Facebook':
+					$icon = 'facebook-f';
+				break;
+				case 'Twitter':
+					$icon = 'twitter';
+				break;
+				case 'LinkedIn':
+					$icon = 'linkedin-in';
+				break;
+				case 'Instagram':
+					$icon = 'instagram';
+				break;
+			}
+
+			$element_animate = '';
+			// Check if has animation
+			if ($attr['animate'] != '') {
+				$element_animate = 'data-aos="'. $attr['animate'] .'" data-aos-once="true" data-aos-duration="'. $attr['animate-duration'] .'"';
+			}
+
+			// Construct HTML
+			$html = '<a href="'. $attr['url'] .'" title="'. $attr['platform'] .'" target="_blank" class="b2-social '. $attr['class'] .'" '. $element_animate .'>
+				<i class="fa-brands fa-'. $icon .'"></i>
+			</a>';
+	
+			return $html;
+		}
 	}
 
 	new App_Shortcodes();

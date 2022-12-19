@@ -317,6 +317,18 @@ a:hover {
   display: flex;
   justify-content: space-between;
 }
+.b2-social {
+  position: relative;
+  display: inline-block;
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  padding: 16px 0;
+  background: #7d41d7;
+  border-radius: 50%;
+}
 button,
 input,
 optgroup,
