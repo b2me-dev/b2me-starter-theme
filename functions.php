@@ -191,3 +191,16 @@ require get_template_directory() . '/inc/shortcodes.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+/** Require all modules on theme */
+function b2me_starter_theme_require_modules () {
+	$modules = glob( get_stylesheet_directory() . '/modules/*' , GLOB_ONLYDIR );
+	if ( $modules ) {
+		foreach ( $modules as $module ) {
+			if ( file_exists( $module . '/module.php' ) ) {
+				require_once( $module . '/module.php' );
+			}
+		}
+	}
+}
+add_action( 'after_setup_theme', 'b2me_starter_theme_require_modules' );
