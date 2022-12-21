@@ -51,11 +51,6 @@ hr
 .b2-bg-accent-color
 	background-color: accent-color
 
-main#primary
-	max-width: 85.31%;
-	margin: 0 auto
-	padding: 0 15px
-
 body:not(.home) .b2-inner-content
 	max-width: 100%
 	padding: 0
@@ -449,6 +444,7 @@ form
 		height: 32px
 		padding: 0 8px
 		border: 1px solid #d3d3d3
+		border-radius: 3px
 
 	textarea
 		min-height 100px
@@ -557,6 +553,25 @@ table
 			border: 1px solid #d3d3d3
 
 /* Inner Page */
+.single-post main#primary,
+.page-template-default main#primary,
+.archive main#primary
+.error404 main#primary
+	max-width: 85.31%;
+	margin: 0 auto
+	padding: 0 15px
+
+.page-template-template-fullwidth
+	main#primary
+		max-width: 100%
+		padding: 0
+
+main#primary
+	min-height: 500px
+
+div#comments
+	display: none
+
 .entry-meta
 .entry-footer
 	margin-bottom: 16px

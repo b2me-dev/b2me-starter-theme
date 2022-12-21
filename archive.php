@@ -10,13 +10,17 @@
 get_header();
 ?>
 
-	<?php
-		if ( function_exists('yoast_breadcrumb') && !is_front_page()) {
-			yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
-		}
-	?>
+	<div class="b2-ip-banner">
+		<canvas width="1920" height="350"></canvas>
+	</div>
 
 	<main id="primary" class="site-main">
+
+		<?php
+			if ( function_exists('yoast_breadcrumb') && !is_front_page()) {
+				yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+			}
+		?>
 
 		<?php if ( have_posts() ) : ?>
 

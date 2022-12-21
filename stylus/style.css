@@ -17,11 +17,6 @@ hr {
 .b2-bg-accent-color {
   background-color: #7d41d7;
 }
-main#primary {
-  max-width: 85.31%;
-  margin: 0 auto;
-  padding: 0 15px;
-}
 body:not(.home) .b2-inner-content {
   max-width: 100%;
   padding: 0;
@@ -396,6 +391,7 @@ form textarea {
   height: 32px;
   padding: 0 8px;
   border: 1px solid #d3d3d3;
+  border-radius: 3px;
 }
 form textarea {
   min-height: 100px;
@@ -493,6 +489,24 @@ table thead td {
 table tbody td {
   padding: 8px;
   border: 1px solid #d3d3d3;
+}
+.single-post main#primary,
+.page-template-default main#primary,
+.archive main#primary,
+.error404 main#primary {
+  max-width: 85.31%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.page-template-template-fullwidth main#primary {
+  max-width: 100%;
+  padding: 0;
+}
+main#primary {
+  min-height: 500px;
+}
+div#comments {
+  display: none;
 }
 .entry-meta,
 .entry-footer {
@@ -959,12 +973,6 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-color: #7d41d7;
-}
-.entry-content,
-.error-404 {
-  min-height: 500px;
-  margin-bottom: 24px;
-  padding: 0;
 }
 h1.entry-title {
   font-size: 64px;
