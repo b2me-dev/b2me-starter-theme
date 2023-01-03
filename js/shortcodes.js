@@ -20,7 +20,11 @@
 				arrows_settings = false;
 
 			// Check if arrows is added
-			if (arrows == 'yes') arrows_settings = true;
+			if (arrows == 'yes') {
+				arrows_settings = true;
+			} else {
+				jQuery('.b2-hp-banner-arrows').addClass('b2-hidden');
+			}
 
 			// Check if dots is added
 			if (dots == 'yes') dots_settings = true;

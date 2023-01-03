@@ -9,6 +9,7 @@
 			add_shortcode('b2-content', array($this, 'content'));
 			add_shortcode('b2-row', array($this, 'row'));
 			add_shortcode('b2-col', array($this, 'column'));
+			add_shortcode('b2-div', array($this, 'div'));
 			add_shortcode('b2-heading', array($this, 'heading'));
 			add_shortcode('b2-image', array($this, 'image'));
 			add_shortcode('b2-link', array($this, 'link'));
@@ -122,6 +123,28 @@
 			return $html;
 		}
 
+		public function div($attr, $content = null) {
+			// Options
+			$attr = shortcode_atts(array(
+				'class' => '',
+				'animate' => '',
+				'animate-duration' => '',
+			), $attr);
+
+			// Check if has animation
+			$element_animate = '';
+			if ($attr['animate'] != '') {
+				$element_animate = 'data-aos="'. $attr['animate'] .'" data-aos-once="true" data-aos-duration="'. $attr['animate-duration'] .'"';
+			}
+	
+			// Construct HTML
+			$html = '<div class="'. $attr['class'] .'" '. $element_animate .'>
+				' . do_shortcode( $content ) . '
+			</div>';
+	
+			return $html;
+		}
+
 		public function heading($attr, $content = null) {
 			// Options
 			$attr = shortcode_atts(array(
@@ -202,7 +225,7 @@
 			}
 
 			// Construct HTML
-			$html = '<a href="'. $attr['href'] .'" '. $element_target .' title="'. $content .'" class="'.$attr['class'].'" '. $element_animate .'>
+			$html = '<a href="'. $attr['href'] .'" '. $element_target .' class="'.$attr['class'].'" '. $element_animate .'>
 				' . do_shortcode( $content ) . '
 			</a>';
 	
