@@ -19,6 +19,11 @@
 				<i class="fa-solid fa-angle-up"></i>
 			</a>
 		</div>
+		<div class="b2-mob-phone b2-hide-desktop">
+			<a href="tel:0712345678" title="Call Us" rel="nofollow">
+				<i class="fa-solid fa-phone"></i>
+			</a>
+		</div>
 		<?php wp_footer(); ?>
 	</body>
 </html>
