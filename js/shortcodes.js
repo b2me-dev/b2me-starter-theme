@@ -116,7 +116,7 @@
 		mobileHeader: function() {
 			var menu = jQuery('.b2-mh-top-bar-col.col-menu > a'),
 				nav_links = jQuery('#mobilenav'),
-				nav_with_sub = jQuery('#mobilenav .menu-item-has-children > a');
+				nav_with_sub = jQuery('#mobilenav .menu-item-has-children > a ');
 
 			menu.click(function(e) {
 				e.preventDefault();
@@ -134,16 +134,16 @@
 
 			nav_with_sub.click(function(e) {
 				e.preventDefault();
-				
+				var link = jQuery(this).attr('href');
+
 				// Close all active submenus
 				if (!jQuery(this).hasClass('active-link')) {
 					nav_with_sub.removeClass('active-link');
 					nav_with_sub.parent().find('.sub-menu').slideUp();
 				}
 
-				if (jQuery(this).hasClass('active-link')) { // Close submenu
-					jQuery(this).removeClass('active-link');
-					jQuery(this).parent().find('.sub-menu').slideUp();
+				if (jQuery(this).hasClass('active-link')) { // Redirect to the page link immediately
+					window.location.href = link;
 				} else { // Open submenu
 					jQuery(this).addClass('active-link');
 					jQuery(this).parent().find('.sub-menu').slideDown();
