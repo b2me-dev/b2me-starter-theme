@@ -7,7 +7,6 @@
 	- Images
 	- Links
 	- Forms
-	- Helpers
 	- Mobile Header
 	- Shortcode
 */
@@ -46,11 +45,6 @@ section
 	position relative
 	padding: 64px 0
 
-hr
-	box-sizing: content-box;
-	height: 0;
-	overflow: visible;
-
 .b2-bg-accent-color
 	background-color: accent-color
 
@@ -61,94 +55,10 @@ body:not(.home) .b2-inner-content
 .b2-inner-content
 	max-width: 85.31%;
 	margin: 0 auto
-	padding: 0 15px
-
-.b2-row
-	display flex
-	flex-flow: wrap
-	justify-content: space-between
-	margin: 0 -15px;
-
-	&.v-center
-		align-items: center
-
-	&.b2-space-around
-		justify-content: space-around
-
-	.b2-col
-		padding: 0 15px
-		min-height: 1px
-		margin-bottom: 1px
-
-		&.col-1
-			width: 8.30%
-
-		&.col-2
-			width: 16.60%
-
-		&.col-3
-			width: 24.90%
-
-		&.col-4
-			width: 33.33%
-
-		&.col-5
-			width: 41.51%
-
-		&.col-6
-			width: 50%
-
-		&.col-7
-			width: 58.11%
-
-		&.col-8
-			width: 66.42%
-
-		&.col-9
-			width: 74.72%
-
-		&.col-10
-			width: 83.02%
-
-		&.col-11
-			width: 91.33%
-
-		&.col-12
-			width: 100%
-
-.b2-column-no-gutter
-	.b2-col
-		padding: 0
-
-.b2-ordered-list
-	margin: 0 0 16px 16px
-
-.b2-unordered-list
-	margin: 0 0 16px 16px
 
 /* ------------- End: Layout ------------- */
 
 /* ------------- Start: Textography ------------- */
-b,
-strong {
-	font-weight: bolder;
-}
-small {
-	font-size: 80%;
-}
-sub,
-sup {
-	font-size: 75%;
-	line-height: 0;
-	position: relative;
-	vertical-align: baseline;
-}
-sub {
-	bottom: -0.25em;
-}
-sup {
-	top: -0.5em;
-}
 h1,
 h2,
 h3,
@@ -197,50 +107,8 @@ p,
 	font-weight: 400
 	line-height: 1.5
 
-.b2-text-center
-	text-align: center
-
-.b2-text-justify
-	text-align: justify
-
-.b2-text-right
-	text-align: right
-
-.b2-text-left
-	text-align: left
-
-.b2-text-underline
-	text-decoration: underline
-
-.b2-text-italic
-	font-style: italic
-
-.b2-text-lowercase
-	text-transform: lowercase
-
-.b2-text-uppercase
-	text-transform: uppercase
-
-.b2-text-capitalize
-	text-transform: capitalize
-
-.b2-font-weight-normal
-	font-weight: 400
-
-.b2-font-weight-light
-	font-weight: 300
-
-.b2-font-weight-semibold
-	font-weight: 600
-
-.b2-font-weight-bold
-	font-weight: 700
-
 .b2-text-accent-color
 	color: accent-color
-
-.b2-text-white
-	color: #fff
 
 .b2-title-font
 	font-family: title-font
@@ -248,95 +116,14 @@ p,
 .b2-paragraph-font
 	font-family: paragraph-font
 
-dfn,
-cite,
-em,
-i {
-	font-style: italic;
-}
-pre {
-	background: #eee;
-	font-family: "Courier 10 Pitch", courier, monospace;
-	line-height: 1.6;
-	margin-bottom: 1.6em;
-	max-width: 100%;
-	overflow: auto;
-	padding: 1.6em;
-}
-code,
-kbd,
-tt,
-var {
-	font-family: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-}
-
-abbr,
-acronym {
-	border-bottom: 1px dotted #666;
-	cursor: help;
-}
-
-mark,
-ins {
-	background: #fff9c0;
-	text-decoration: none;
-}
-
-big {
-	font-size: 125%;
-}
-
-ul,
-ol {
-	margin: 0 0 0 3em;
-}
-
-ul {
-	list-style: disc;
-}
-
-ol {
-	list-style: decimal;
-}
-
-li > ul,
-li > ol {
-	margin-bottom: 0;
-	margin-left: 1.5em;
-}
-
-dt {
-	font-weight: 700;
-}
-
-dd {
-	margin: 0 1.5em 1.5em;
-}
-
 /* ------------- End: Textography ------------- */
 
 /* ------------- Start: Image ------------- */
-img
-	border-style: none;
 
 .post-thumbnail
 	float: left
 	max-width: 300px
 	margin: 0 16px 16px 0
-
-.b2-img-responsive,
-.post-thumbnail img
-	display block
-	max-width: 100%
-	height: auto
-
-.b2-img-left-align
-	float: left
-	margin: 0 16px 16px 0
-
-.b2-img-right-align
-	float: right
-	margin: 0 0 16px 16px
 
 /* ------------- End: Image ------------- */
 
@@ -425,30 +212,7 @@ a
 /* ------------- End: Links ------------- */
 
 /* ------------- Start: Forms ------------- */
-button,
-input,
-optgroup,
-select,
-textarea {
-	margin: 0;
-}
-button,
-input {
-	overflow: visible;
-}
-button,
-select {
-	text-transform: none;
-}
-button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
-	-webkit-appearance: button;
-}
-[hidden] {
-	display: none;
-}
+
 form
 	input[type=text],
 	input[type=email],
@@ -489,89 +253,6 @@ form
 			opacity .7
 
 /* ------------- End: Forms ------------- */
-
-/* ------------- Start: Helpers ------------- */
-.b2-ease
-	transition: all .2s ease-in;
-
-.b2-hover
-	opacity: .7
-
-.b2-hidden
-	display: none
-
-@media only screen and (min-width: 992px) {
-	.b2-hide-desktop {
-		display: none;
-	}
-}
-
-@media only screen and (max-width: 991px) {
-	.b2-hide-mobile {
-		display: none;
-	}
-}
-
-.b2-spacing-sm
-	margin: 8px
-
-.b2-spacing-md
-	margin: 16px
-
-.b2-spacing-lg
-	margin: 32px
-
-.b2-no-top-spacing
-	margin-top: 0
-
-.b2-no-left-spacing
-	margin-left: 0
-
-.b2-no-right-spacing
-	margin-right: 0
-
-.b2-no-bottom-spacing
-	margin-bottom: 0
-
-embed,
-iframe,
-object {
-	max-width: 100%;
-}
-
-figure {
-	margin: 1em 0;
-}
-
-table {
-	margin: 0 0 1.5em;
-	width: 100%;
-}
-
-.b2-clearfix
-	overflow: auto;
-
-	&::after
-		content: ""
-		clear: both
-		display: table
-
-table
-	border-collapse: collapse
-	border: 1px solid #d3d3d3
-
-	thead
-		td
-			font-weight: 700
-			text-align: center
-			padding: 8px
-			background-color: #ebebeb
-			border: 1px solid #d3d3d3
-
-	tbody
-		td
-			padding: 8px
-			border: 1px solid #d3d3d3
 
 /* Inner Page */
 .single-post main#primary,

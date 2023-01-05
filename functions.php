@@ -148,6 +148,7 @@ function b2me_master_theme_scripts() {
 	wp_enqueue_style( 'b2me-slick', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css', array(), _S_VERSION );
 
 	// Main CSS
+	wp_enqueue_style( 'b2me-global-style', 'https://resources.b2me.marketing/assets/css/global.css');
 	wp_enqueue_style( 'b2me-master-theme-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_enqueue_style( 'main-style', get_stylesheet_directory_uri() . '/stylus/style.css');
 
