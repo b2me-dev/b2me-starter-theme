@@ -157,6 +157,7 @@ function b2me_master_theme_scripts() {
 	wp_enqueue_script( 'b2me-aos', 'https://unpkg.com/aos@next/dist/aos.js', ['jquery'], _S_VERSION, true );
 
 	// Main JS
+	wp_enqueue_script( 'b2me-global-scripts', 'https://resources.b2me.marketing/assets/js/global.js', ['jquery']);
 	wp_enqueue_script( 'shortcodes-scripts', get_stylesheet_directory_uri() . '/js/shortcodes.js', ['jquery']);
 	wp_enqueue_script( 'main-scripts', get_stylesheet_directory_uri() . '/js/app.js', ['jquery']);
 
