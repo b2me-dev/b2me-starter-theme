@@ -34,6 +34,7 @@
 				'id' => '',
 				'animate' => '',
 				'animate-duration' => '',
+				'animate-delay' => '',
 			), $attr);
 	
 			$element_id = '';
@@ -46,7 +47,7 @@
 	
 			// Check if has animation
 			if ($attr['animate'] != '') {
-				$element_animate = 'data-aos="'. $attr['animate'] .'" data-aos-once="true" data-aos-duration="'. $attr['animate-duration'] .'"';
+				$element_animate = 'data-aos="'. $attr['animate'] .'" data-aos-once="true" data-aos-duration="'. $attr['animate-duration'] .'" data-aos-delay="'. $attr['animate-delay'] .'"';
 			}
 	
 			// Construct HTML
@@ -64,6 +65,7 @@
 				'id' => '',
 				'animate' => '',
 				'animate-duration' => '',
+				'animate-delay' => '',
 			), $attr);
 
 			$element_id = '';
@@ -76,7 +78,7 @@
 	
 			// Check if has animation
 			if ($attr['animate'] != '') {
-				$element_animate = 'data-aos="'. $attr['animate'] .'" data-aos-once="true" data-aos-duration="'. $attr['animate-duration'] .'"';
+				$element_animate = 'data-aos="'. $attr['animate'] .'" data-aos-once="true" data-aos-duration="'. $attr['animate-duration'] .'" data-aos-delay="'. $attr['animate-delay'] .'"';
 			}
 	
 			// Construct HTML
@@ -129,12 +131,13 @@
 				'class' => '',
 				'animate' => '',
 				'animate-duration' => '',
+				'animate-delay' => '',
 			), $attr);
 
 			// Check if has animation
 			$element_animate = '';
 			if ($attr['animate'] != '') {
-				$element_animate = 'data-aos="'. $attr['animate'] .'" data-aos-once="true" data-aos-duration="'. $attr['animate-duration'] .'"';
+				$element_animate = 'data-aos="'. $attr['animate'] .'" data-aos-once="true" data-aos-duration="'. $attr['animate-duration'] .'" data-aos-delay="'. $attr['animate-delay'] .'"';
 			}
 	
 			// Construct HTML
@@ -153,6 +156,7 @@
 				'pre-heading' => '',
 				'animate' => '',
 				'animate-duration' => '',
+				'animate-delay' => '',
 			), $attr);
 
 			$element_animate = '';
@@ -166,7 +170,7 @@
 
 			// Check if has animation
 			if ($attr['animate'] != '') {
-				$element_animate = 'data-aos="'. $attr['animate'] .'" data-aos-once="true" data-aos-duration="'. $attr['animate-duration'] .'"';
+				$element_animate = 'data-aos="'. $attr['animate'] .'" data-aos-once="true" data-aos-duration="'. $attr['animate-duration'] .'" data-aos-delay="'. $attr['animate-delay'] .'"';
 			}
 
 			// Construct HTML
@@ -186,13 +190,14 @@
 				'description' => '',
 				'animate' => '',
 				'animate-duration' => '',
+				'animate-delay' => '',
 			), $attr);
 
 			$element_animate = '';
 
 			// Check if has animation
 			if ($attr['animate'] != '') {
-				$element_animate = 'data-aos="'. $attr['animate'] .'" data-aos-once="true" data-aos-duration="'. $attr['animate-duration'] .'"';
+				$element_animate = 'data-aos="'. $attr['animate'] .'" data-aos-once="true" data-aos-duration="'. $attr['animate-duration'] .'" data-aos-delay="'. $attr['animate-delay'] .'"';
 			}
 
 			// Construct HTML
@@ -209,6 +214,7 @@
 				'target' => '',
 				'animate' => '',
 				'animate-duration' => '',
+				'animate-delay' => '',
 			), $attr);
 
 			$element_animate = '';
@@ -221,7 +227,7 @@
 
 			// Check if has animation
 			if ($attr['animate'] != '') {
-				$element_animate = 'data-aos="'. $attr['animate'] .'" data-aos-once="true" data-aos-duration="'. $attr['animate-duration'] .'"';
+				$element_animate = 'data-aos="'. $attr['animate'] .'" data-aos-once="true" data-aos-duration="'. $attr['animate-duration'] .'" data-aos-delay="'. $attr['animate-delay'] .'"';
 			}
 
 			// Construct HTML
@@ -238,13 +244,14 @@
 				'class' => '',
 				'animate' => '',
 				'animate-duration' => '',
+				'animate-delay' => '',
 			), $attr);
 
 			$element_animate = '';
 
 			// Check if has animation
 			if ($attr['animate'] != '') {
-				$element_animate = 'data-aos="'. $attr['animate'] .'" data-aos-once="true" data-aos-duration="'. $attr['animate-duration'] .'"';
+				$element_animate = 'data-aos="'. $attr['animate'] .'" data-aos-once="true" data-aos-duration="'. $attr['animate-duration'] .'" data-aos-delay="'. $attr['animate-delay'] .'"';
 			}
 
 			// Construct HTML
@@ -261,6 +268,7 @@
 				'class' => '',
 				'animate' => '',
 				'animate-duration' => '',
+				'animate-delay' => '',
 			), $attr);
 
 			// Remove spacing
@@ -269,7 +277,7 @@
 			$element_animate = '';
 			// Check if has animation
 			if ($attr['animate'] != '') {
-				$element_animate = 'data-aos="'. $attr['animate'] .'" data-aos-once="true" data-aos-duration="'. $attr['animate-duration'] .'"';
+				$element_animate = 'data-aos="'. $attr['animate'] .'" data-aos-once="true" data-aos-duration="'. $attr['animate-duration'] .'" data-aos-delay="'. $attr['animate-delay'] .'"';
 			}
 
 			// Construct HTML
@@ -407,18 +415,19 @@
 				'question' => '',
 				'animate' => '',
 				'animate-duration' => '',
+				'animate-delay' => '',
 			), $attr);
 
 			$element_animate = '';
 			// Check if has animation
 			if ($attr['animate'] != '') {
-				$element_animate = 'data-aos="'. $attr['animate'] .'" data-aos-once="true" data-aos-duration="'. $attr['animate-duration'] .'"';
+				$element_animate = 'data-aos="'. $attr['animate'] .'" data-aos-once="true" data-aos-duration="'. $attr['animate-duration'] .'" data-aos-delay="'. $attr['animate-delay'] .'"';
 			}
 
 			$stripped_content = strip_tags($content);
 	
 			// Construct HTML
-			$html = '<div class="b2-faq-item '. $attr['class'] .' '. $element_animate .'">
+			$html = '<div class="b2-faq-item '. $attr['class'] .'" '. $element_animate .'">
 				<div class="b2-faq-item-q tab-close">
 					<p>'. $attr['question'] .'</p>
 					<i class="fa-solid fa-angle-up"></i>
@@ -455,12 +464,13 @@
 				'excerpt-limit' => '',
 				'animate' => '',
 				'animate-duration' => '',
+				'animate-delay' => '',
 			), $attr);
 
 			$element_animate = '';
 			// Check if has animation
 			if ($attr['animate'] != '') {
-				$element_animate = 'data-aos="'. $attr['animate'] .'" data-aos-once="true" data-aos-duration="'. $attr['animate-duration'] .'"';
+				$element_animate = 'data-aos="'. $attr['animate'] .'" data-aos-once="true" data-aos-duration="'. $attr['animate-duration'] .'" data-aos-delay="'. $attr['animate-delay'] .'"';
 			}
 
 			// Query
@@ -585,6 +595,7 @@
 				'url' => '',
 				'animate' => '',
 				'animate-duration' => '',
+				'animate-delay' => '',
 			), $attr);
 
 			$icon = '';
@@ -611,7 +622,7 @@
 			$element_animate = '';
 			// Check if has animation
 			if ($attr['animate'] != '') {
-				$element_animate = 'data-aos="'. $attr['animate'] .'" data-aos-once="true" data-aos-duration="'. $attr['animate-duration'] .'"';
+				$element_animate = 'data-aos="'. $attr['animate'] .'" data-aos-once="true" data-aos-duration="'. $attr['animate-duration'] .'" data-aos-once="true" data-aos-delay="'. $attr['animate-delay'] .'"';
 			}
 
 			// Construct HTML
