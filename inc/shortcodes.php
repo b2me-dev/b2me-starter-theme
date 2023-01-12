@@ -596,10 +596,15 @@
 					$icon = 'twitter';
 				break;
 				case 'LinkedIn':
+				case 'Linkedin':
 					$icon = 'linkedin-in';
 				break;
 				case 'Instagram':
 					$icon = 'instagram';
+				break;
+				case 'YouTube':
+				case 'Youtube':
+					$icon = 'youtube';
 				break;
 			}
 
