@@ -167,6 +167,9 @@ a:hover {
   background: #7d41d7;
   border-radius: 50%;
 }
+#breadcrumbs a {
+  color: #7d41d7;
+}
 form input[type=text],
 form input[type=email],
 form input[type=tel],

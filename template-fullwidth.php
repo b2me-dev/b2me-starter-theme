@@ -4,8 +4,11 @@
  */
 get_header(); ?>
 
+	<?php
+		$featured_img_url = get_the_post_thumbnail_url(get_the_ID(), 'full'); 
+	?>
 	<div class="b2-ip-banner">
-		<canvas width="1920" height="350"></canvas>
+		<canvas width="1920" height="350" style="background-image: url('<?= $featured_img_url; ?>')"></canvas>
 	</div>
 
 	<main id="primary" class="site-main">
