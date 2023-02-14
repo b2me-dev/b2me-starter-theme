@@ -5,6 +5,7 @@
 							array(
 								'theme_location' => 'menu-1',
 								'menu_id'        => 'footernav',
+								'depth'        	 => 1,
 							)
 						);
 					?>
