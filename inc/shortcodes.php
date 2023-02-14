@@ -115,20 +115,6 @@
 			$attr = shortcode_atts(array(
 				'class' => '',
 				'size' => '',
-			), $attr);
-
-			// Construct HTML
-			$html = '<div class="b2-col col-'. $attr['size'] .' '. $attr['class'] .'">
-				' . do_shortcode( $content ) . '
-			</div>';
-	
-			return $html;
-		}
-
-		public function div($attr, $content = null) {
-			// Options
-			$attr = shortcode_atts(array(
-				'class' => '',
 				'animate' => '',
 				'animate-duration' => '',
 				'animate-delay' => '',
@@ -139,9 +125,40 @@
 			if ($attr['animate'] != '') {
 				$element_animate = 'data-aos="'. $attr['animate'] .'" data-aos-once="true" data-aos-duration="'. $attr['animate-duration'] .'" data-aos-delay="'. $attr['animate-delay'] .'"';
 			}
+
+			// Construct HTML
+			$html = '<div class="b2-col col-'. $attr['size'] .' '. $attr['class'] .'" '. $element_animate .'>
+				' . do_shortcode( $content ) . '
+			</div>';
+	
+			return $html;
+		}
+
+		public function div($attr, $content = null) {
+			// Options
+			$attr = shortcode_atts(array(
+				'class' => '',
+				'id' => '',
+				'animate' => '',
+				'animate-duration' => '',
+				'animate-delay' => '',
+			), $attr);
+
+			$element_id = '';
+			$element_animate = '';
+
+			// Check if has id
+			if ($attr['id'] != '') {
+				$element_id = 'id="'. $attr['id'] .'"';
+			}
+
+			// Check if has animation
+			if ($attr['animate'] != '') {
+				$element_animate = 'data-aos="'. $attr['animate'] .'" data-aos-once="true" data-aos-duration="'. $attr['animate-duration'] .'" data-aos-delay="'. $attr['animate-delay'] .'"';
+			}
 	
 			// Construct HTML
-			$html = '<div class="'. $attr['class'] .'" '. $element_animate .'>
+			$html = '<div class="'. $attr['class'] .'" '. $element_animate .' '. $element_id .'>
 				' . do_shortcode( $content ) . '
 			</div>';
 	
@@ -152,6 +169,7 @@
 			// Options
 			$attr = shortcode_atts(array(
 				'class' => '',
+				'id' => '',
 				'size' => '',
 				'pre-heading' => '',
 				'animate' => '',
@@ -162,6 +180,7 @@
 			$element_animate = '';
 			$pre_heading = '';
 			$element = 'h'. $attr['size'];
+			$element_id = '';
 
 			// Check if has pre-heading
 			if ($attr['pre-heading'] != '') {
@@ -173,8 +192,13 @@
 				$element_animate = 'data-aos="'. $attr['animate'] .'" data-aos-once="true" data-aos-duration="'. $attr['animate-duration'] .'" data-aos-delay="'. $attr['animate-delay'] .'"';
 			}
 
+			// Check if has id
+			if ($attr['id'] != '') {
+				$element_id = 'id="'. $attr['id'] .'"';
+			}
+
 			// Construct HTML
-			$html = '<'. $element .' class="'.$attr['class'].'" '. $element_animate .'>
+			$html = '<'. $element .' class="'.$attr['class'].'" '. $element_animate .' '. $element_id .'>
 				'. $pre_heading .'
 				' . do_shortcode( $content ) . '
 			</'. $element .'>';
@@ -186,8 +210,10 @@
 			// Options
 			$attr = shortcode_atts(array(
 				'class' => '',
-				'source' => '',
-				'description' => '',
+				'src' => '',
+				'alt' => '',
+				'width' => '',
+				'height' => '',
 				'animate' => '',
 				'animate-duration' => '',
 				'animate-delay' => '',
@@ -201,7 +227,7 @@
 			}
 
 			// Construct HTML
-			$html = '<img src="'. $attr['source'] .'" alt="'. $attr['description'] .'" class="'.$attr['class'].'" '. $element_animate .'>';
+			$html = '<img src="'. $attr['src'] .'" alt="'. $attr['alt'] .'" width="'. $attr['width'] .'" height="'. $attr['height'] .'" class="'.$attr['class'].'" '. $element_animate .'>';
 	
 			return $html;
 		}
@@ -210,6 +236,7 @@
 			// Options
 			$attr = shortcode_atts(array(
 				'class' => '',
+				'id' => '',
 				'href' => '',
 				'target' => '',
 				'animate' => '',
@@ -219,6 +246,7 @@
 
 			$element_animate = '';
 			$element_target = '';
+			$element_id = '';
 
 			// Check if has target
 			if ($attr['target'] != '') {
@@ -230,8 +258,13 @@
 				$element_animate = 'data-aos="'. $attr['animate'] .'" data-aos-once="true" data-aos-duration="'. $attr['animate-duration'] .'" data-aos-delay="'. $attr['animate-delay'] .'"';
 			}
 
+			// Check if has id
+			if ($attr['id'] != '') {
+				$element_id = 'id="'. $attr['id'] .'"';
+			}
+
 			// Construct HTML
-			$html = '<a href="'. $attr['href'] .'" '. $element_target .' class="'.$attr['class'].'" '. $element_animate .'>
+			$html = '<a href="'. $attr['href'] .'" '. $element_target .' class="'.$attr['class'].'" '. $element_animate .' '. $element_id .'>
 				' . do_shortcode( $content ) . '
 			</a>';
 	
@@ -266,6 +299,7 @@
 			// Options
 			$attr = shortcode_atts(array(
 				'class' => '',
+				'ext' => '',
 				'animate' => '',
 				'animate-duration' => '',
 				'animate-delay' => '',
@@ -281,7 +315,7 @@
 			}
 
 			// Construct HTML
-			$html = '<a href="tel:'. $phone .'" title="Call '. $phone .'" rel="nofollow" class="'.$attr['class'].'" '. $element_animate .'>
+			$html = '<a href="tel:'. $attr['ext'] . $phone .'" title="Call '. $phone .'" rel="nofollow" class="'.$attr['class'].'" '. $element_animate .'>
 				' . $content . '
 			</a>';
 	
@@ -601,9 +635,11 @@
 			$icon = '';
 			switch ($attr['platform']) {
 				case 'Facebook':
+				case 'facebook':
 					$icon = 'facebook-f';
 				break;
 				case 'Twitter':
+				case 'twitter':
 					$icon = 'twitter';
 				break;
 				case 'LinkedIn':
@@ -611,10 +647,12 @@
 					$icon = 'linkedin-in';
 				break;
 				case 'Instagram':
+				case 'instagram':
 					$icon = 'instagram';
 				break;
 				case 'YouTube':
 				case 'Youtube':
+				case 'youtube':
 					$icon = 'youtube';
 				break;
 			}
