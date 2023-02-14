@@ -19,6 +19,62 @@
 	</head>
 	<body <?php body_class(); ?>>
 		<?php wp_body_open(); ?>
+		<script type="application/ld+json">
+			[{
+				"@context": "http://schema.org/",
+				"@type": "LocalBusiness",
+				"name": "Site Name",
+				"@id": "https://www.sitename.com.au/",
+				"logo": "https://www.sitename.com.au/wp-content/uploads/2023/01/logo.jpg",
+				"url": "https://www.sitename.com.au/",
+				"email": "admin@sitename.com.au ",
+				"telephone": "+61 123 456 789",
+				"legalName": "Site Name",
+				"contactPoint": {
+					"@type": "ContactPoint",
+					"telephone": "+61 123 456 789",
+					"contactType": "Customer Service"
+				},
+				"address": {
+					"@type": "PostalAddress",
+					"streetAddress": "Street",
+					"addressLocality": "Local",
+					"addressRegion": "Region",
+					"postalCode": "1234",
+					"addressCountry": {
+						"@type": "Country",
+						"name": "Australia"
+					}
+				},
+				"sameAs": ["#", "#"],
+				"openingHoursSpecification": [{
+					"@type": "OpeningHoursSpecification",
+					"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+					"opens": "10:00",
+					"closes": "22:00"
+				}, {
+					"@type": "OpeningHoursSpecification",
+					"dayOfWeek": ["Saturday", "Sunday"],
+					"opens": "00:00",
+					"closes": "00:00"
+				}],
+				"aggregateRating": {
+					"@type": "AggregateRating",
+					"ratingValue": "5",
+					"bestRating": "5",
+					"worstRating": "1",
+					"ratingCount": "10"
+				},
+				"priceRange": "N/A"
+				},
+				{
+				"@context": "http://schema.org/",
+				"@type": "Website",
+				"name": "Site Name",
+				"url": "https://www.sitename.com.au/"
+				}
+			]
+		</script>
 		<div id="page" class="site">
 			<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'b2me-master-theme' ); ?></a>
 
