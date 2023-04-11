@@ -237,6 +237,7 @@
 			$attr = shortcode_atts(array(
 				'class' => '',
 				'id' => '',
+				'rel' => '',
 				'href' => '',
 				'target' => '',
 				'animate' => '',
@@ -247,6 +248,7 @@
 			$element_animate = '';
 			$element_target = '';
 			$element_id = '';
+			$element_rel = '';
 
 			// Check if has target
 			if ($attr['target'] != '') {
@@ -263,8 +265,13 @@
 				$element_id = 'id="'. $attr['id'] .'"';
 			}
 
+			// Check if has id
+			if ($attr['rel'] != '') {
+				$element_rel = 'rel="'. $attr['rel'] .'"';
+			}
+
 			// Construct HTML
-			$html = '<a href="'. $attr['href'] .'" '. $element_target .' class="'.$attr['class'].'" '. $element_animate .' '. $element_id .'>
+			$html = '<a href="'. $attr['href'] .'" '. $element_target .' class="'.$attr['class'].'" '. $element_animate .' '. $element_id .' '. $element_rel .'>
 				' . do_shortcode( $content ) . '
 			</a>';
 	
