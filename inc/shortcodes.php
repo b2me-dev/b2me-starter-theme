@@ -231,7 +231,7 @@
 			}
 			
 			// Check if has lazyload
-			if ($attr['lazyload'] == "") {
+			if ($attr['b2-lazyload'] == true) {
 				$element_lazyload = 'b2-lazyload';
 			}
 
