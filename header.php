@@ -90,9 +90,6 @@
 						</a>
 					</div>
 					<div class="b2-mh-top-bar-col col-menu">
-						<a href="#" title="Menu">
-							<i class="fa-solid fa-bars"></i>
-						</a>
 						<?php
 							wp_nav_menu(
 								array(

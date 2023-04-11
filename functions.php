@@ -50,6 +50,7 @@ function b2me_master_theme_setup() {
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__( 'Primary', 'b2me-master-theme' ),
+			'footer-nav' => esc_html__( 'Footer Nav', 'b2me-master-theme' ),
 		)
 	);
 
