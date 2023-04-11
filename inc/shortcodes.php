@@ -211,15 +211,29 @@
 			$attr = shortcode_atts(array(
 				'class' => '',
 				'src' => '',
+				'data-src' => '',
 				'alt' => '',
 				'width' => '',
 				'height' => '',
 				'animate' => '',
 				'animate-duration' => '',
 				'animate-delay' => '',
+				'b2-lazyload' => '',
 			), $attr);
 
 			$element_animate = '';
+			$element_lazyload = '';
+			$element_datasrc = '';
+
+			// Check if has data
+			if ($attr['data-src'] != '') {
+				$element_datasrc = 'data-src="'. $attr['data-src'] .'"';
+			}
+			
+			// Check if has lazyload
+			if ($attr['lazyload'] == "") {
+				$element_lazyload = 'b2-lazyload';
+			}
 
 			// Check if has animation
 			if ($attr['animate'] != '') {
@@ -227,7 +241,7 @@
 			}
 
 			// Construct HTML
-			$html = '<img src="'. $attr['src'] .'" alt="'. $attr['alt'] .'" width="'. $attr['width'] .'" height="'. $attr['height'] .'" class="'.$attr['class'].'" '. $element_animate .'>';
+			$html = '<img '. $element_datasrc .' src="'. $attr['src'] .'" alt="'. $attr['alt'] .'" width="'. $attr['width'] .'" height="'. $attr['height'] .'" class="'.$attr['class'].'" '. $element_animate .' '. $element_lazyload .'>';
 	
 			return $html;
 		}
