@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '2023.2' );
+	define( '_S_VERSION', '2023.4' );
 }
 
 /**
@@ -150,7 +150,7 @@ function b2me_master_theme_scripts() {
 	// Main CSS
 	wp_enqueue_style( 'b2me-global-style', 'https://resources.b2me.marketing/assets/css/global.css', array(), null);
 	wp_enqueue_style( 'b2me-master-theme-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_enqueue_style( 'main-style', get_stylesheet_directory_uri() . '/stylus/style.css');
+	wp_enqueue_style( 'main-style', get_stylesheet_directory_uri() . '/stylus/style.css', array(), null);
 
 	// JS Resources
 	wp_enqueue_script( 'b2me-slick', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', ['jquery'], _S_VERSION, true );
