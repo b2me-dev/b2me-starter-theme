@@ -17,7 +17,11 @@
 
 		<?php wp_head(); ?>
 	</head>
-	<body <?php body_class(); ?>>
+	<?php
+		$ip_class = '';
+		if (!is_front_page()) $ip_class = 'ip-container';
+	?>
+	<body <?php body_class($ip_class); ?>>
 		<?php wp_body_open(); ?>
 		<script type="application/ld+json">
 			[{
