@@ -478,8 +478,6 @@
 			if ($attr['animate'] != '') {
 				$element_animate = 'data-aos="'. $attr['animate'] .'" data-aos-once="true" data-aos-duration="'. $attr['animate-duration'] .'" data-aos-delay="'. $attr['animate-delay'] .'"';
 			}
-
-			$stripped_content = strip_tags($content);
 	
 			// Construct HTML
 			$html = '<div class="b2-faq-item '. $attr['class'] .'" '. $element_animate .'">
@@ -490,20 +488,6 @@
 				<div class="b2-faq-item-a">
 					'. $content .'
 				</div>
-				<script type="application/ld+json">
-					{
-						"@context": "https://schema.org",
-						"@type": "FAQPage",
-						"mainEntity": {
-							"@type": "Question",
-							"name": "'. $attr['question'] .'",
-							"acceptedAnswer": {
-							"@type": "Answer",
-							"text": "'. $stripped_content .'"
-							}
-						}
-					}
-				</script>
 			</div>';
 	
 			return $html;
