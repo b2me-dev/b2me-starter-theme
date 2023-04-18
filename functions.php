@@ -195,6 +195,12 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * Load Theme Settings
+ */
+require get_template_directory() . '/inc/theme-settings.php';
+
+
 /** Require all modules on theme */
 function b2me_starter_theme_require_modules () {
 	$modules = glob( get_stylesheet_directory() . '/modules/*' , GLOB_ONLYDIR );
