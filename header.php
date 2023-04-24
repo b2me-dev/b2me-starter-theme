@@ -15,6 +15,19 @@
 		<meta name="theme-color" content="#7d41d7">
 		<meta name="msapplication-navbutton-color" content="#7d41d7">
 
+		<?php
+			$primary_color = get_field('primary_color', 'option');
+			$secondary_color = get_field('secondary_color', 'option');
+			$accent_color = get_field('accent_color', 'option');
+
+			echo '<style>
+			:root {
+				--primary-color: '. $primary_color .';
+				--secondary-color: '. $secondary_color .';
+				--accent_color: '. $accent_color .';
+			}
+			</style>';
+		?>
 		<?php wp_head(); ?>
 	</head>
 	<?php

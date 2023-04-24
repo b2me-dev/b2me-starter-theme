@@ -23,8 +23,18 @@
 			add_shortcode('b2-blogs', array($this, 'blogs'));
 			add_shortcode('b2-sitemap', array($this, 'sitemap'));
 			add_shortcode('b2-social', array($this, 'social'));
-			add_shortcode('b2-sitename', array($this, 'sitename'));
 			add_shortcode('b2-stylesheetdirectory', array($this, 'stylesheetdirectory'));
+			add_shortcode('b2-site-name', array($this, 'sitename'));
+			add_shortcode('b2-site-header-logo', array($this, 'siteheaderlogo'));
+			add_shortcode('b2-site-footer-logo', array($this, 'sitefooterlogo'));
+			add_shortcode('b2-site-email', array($this, 'siteemail'));
+			add_shortcode('b2-site-phone', array($this, 'sitephone'));
+			add_shortcode('b2-site-full-address', array($this, 'sitefulladdress'));
+			add_shortcode('b2-site-facebook', array($this, 'sitefacebook'));
+			add_shortcode('b2-site-instagram', array($this, 'siteinstagram'));
+			add_shortcode('b2-site-twitter', array($this, 'sitetwitter'));
+			add_shortcode('b2-site-linkedin', array($this, 'sitelinkedin'));
+			add_shortcode('b2-site-youtube', array($this, 'siteyoutube'));
 		}
 
 		public function section($attr, $content = null) {
@@ -676,15 +686,130 @@
 			return $html;
 		}
 
-		public function sitename() {
-			$site_name = get_bloginfo();
-			return $site_name;
-		}
-
 		public function stylesheetdirectory() {
 			$theme_dir = get_stylesheet_directory_uri();
 			return $theme_dir;
 		}
+
+		public function sitename() {
+			$site_name = get_field('website_name', 'option');
+			return $site_name;
+		}
+
+		public function siteheaderlogo() {
+			$header_logo = get_field('header_logo', 'option');
+			$site_name = get_field('website_name', 'option');
+			$header_logo_element = '<a href="/" title="'. $site_name .'"><img src="'. $header_logo .'" alt="'. $site_name .'" class="b2-img-responsive"></a>';
+
+			return $header_logo_element;
+		}
+
+		public function sitefooterlogo() {
+			$footer_logo = get_field('footer_logo', 'option');
+			$site_name = get_field('website_name', 'option');
+			$footer_logo_element = '<a href="/" title="'. $site_name .'"><img src="'. $footer_logo .'" alt="'. $site_name .'" class="b2-img-responsive"></a>';
+
+			return $footer_logo_element;
+		}
+
+		public function siteemail($attr, $content = null) {
+			// Options
+			$attr = shortcode_atts(array(
+				'class' => '',
+			), $attr);
+
+			$email_address = get_field('primary_email_address', 'option');
+			$email_address_element = '<a href="mailto:'. $email_address .'" rel="nofollow" class="'. $attr['class'] .'">'. $content .'</a>';
+
+			return $email_address_element;
+		}
+
+		public function sitephone($attr, $content = null) {
+			// Options
+			$attr = shortcode_atts(array(
+				'class' => '',
+			), $attr);
+
+			$phone = get_field('primary_phone_number', 'option');
+			$phone_element = '<a href="tel:'. $phone .'" rel="nofollow" class="'. $attr['class'] .'">'. $content .'</a>';
+
+			return $phone_element;
+		}
+
+		public function sitefulladdress($attr) {
+			// Options
+			$attr = shortcode_atts(array(
+				'map-link' => '',
+				'class' => '',
+			), $attr);
+
+			$company_address = get_field('company_address', 'option');
+			$street_address = $company_address['street_address'];
+			$city = $company_address['city'];
+			$region = $company_address['region'];
+			$country = $company_address['country'];
+			$postal_code = $company_address['postal_code'];
+
+			$full_address = '<a href="'. $attr['map-link'] .'" title="View on Google Maps" rel="nofollow" target="_blank" class="'. $attr['class'] .'">' . $street_address . ' ' . $city . ', ' . $region . ', ' . $country . ' ' . $postal_code . '</a>';
+
+			return $full_address;
+		}
+
+		public function sitefacebook($attr, $content = null) {
+			// Options
+			$attr = shortcode_atts(array(
+				'class' => '',
+			), $attr);
+
+			$social_link = get_field('facebook', 'option');
+			$social_link_element = '<a href="'. $social_link .'" rel="nofollow" class="'. $attr['class'] .'" target="_blank">' . $content . '</a>';
+			return $social_link_element;
+		}
+
+		public function siteinstagram($attr, $content = null) {
+			// Options
+			$attr = shortcode_atts(array(
+				'class' => '',
+			), $attr);
+
+			$social_link = get_field('instagram', 'option');
+			$social_link_element = '<a href="'. $social_link .'" rel="nofollow" class="'. $attr['class'] .'" target="_blank">' . $content . '</a>';
+			return $social_link_element;
+		}
+
+		public function sitetwitter($attr, $content = null) {
+			// Options
+			$attr = shortcode_atts(array(
+				'class' => '',
+			), $attr);
+
+			$social_link = get_field('twitter', 'option');
+			$social_link_element = '<a href="'. $social_link .'" rel="nofollow" class="'. $attr['class'] .'" target="_blank">' . $content . '</a>';
+			return $social_link_element;
+		}
+
+		public function sitelinkedin($attr, $content = null) {
+			// Options
+			$attr = shortcode_atts(array(
+				'class' => '',
+			), $attr);
+
+			$social_link = get_field('linkedin', 'option');
+			$social_link_element = '<a href="'. $social_link .'" rel="nofollow" class="'. $attr['class'] .'" target="_blank">' . $content . '</a>';
+			return $social_link_element;
+		}
+
+		public function siteyoutube($attr, $content = null) {
+			// Options
+			$attr = shortcode_atts(array(
+				'class' => '',
+			), $attr);
+
+			$social_link = get_field('youtube', 'option');
+			$social_link_element = '<a href="'. $social_link .'" rel="nofollow" class="'. $attr['class'] .'" target="_blank">' . $content . '</a>';
+			return $social_link_element;
+		}
+
 	}
 
 	new App_Shortcodes();
