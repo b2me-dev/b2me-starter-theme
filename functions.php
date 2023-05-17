@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '2023.4' );
+	define( '_S_VERSION', '2023.5' );
 }
 
 /**
@@ -213,3 +213,12 @@ function b2me_starter_theme_require_modules () {
 	}
 }
 add_action( 'after_setup_theme', 'b2me_starter_theme_require_modules' );
+
+function add_file_types_to_uploads($file_types){
+	$new_filetypes = array();
+	$new_filetypes['svg'] = 'image/svg+xml';
+	$file_types = array_merge($file_types, $new_filetypes );
+
+	return $file_types;
+}
+add_filter('upload_mimes', 'add_file_types_to_uploads');
