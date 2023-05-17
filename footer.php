@@ -21,7 +21,10 @@
 			</a>
 		</div>
 		<div class="b2-mob-phone b2-hide-desktop">
-			<a href="tel:0712345678" title="Call Us" rel="nofollow">
+			<?php
+				$primary_phone_number = get_field('primary_phone_number', 'option');
+			?>
+			<a href="tel:<?= $primary_phone_number; ?>" title="Call Us" rel="nofollow">
 				<i class="fa-solid fa-phone"></i>
 			</a>
 		</div>
