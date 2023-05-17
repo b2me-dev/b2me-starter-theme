@@ -11,10 +11,6 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-		<!-- Mobile Theme -->
-		<meta name="theme-color" content="#7d41d7">
-		<meta name="msapplication-navbutton-color" content="#7d41d7">
-
 		<?php
 			$primary_color = get_field('primary_color', 'option');
 			$secondary_color = get_field('secondary_color', 'option');
@@ -24,10 +20,15 @@
 			:root {
 				--primary-color: '. $primary_color .';
 				--secondary-color: '. $secondary_color .';
-				--accent_color: '. $accent_color .';
+				--accent-color: '. $accent_color .';
 			}
 			</style>';
 		?>
+
+		<!-- Mobile Theme -->
+		<meta name="theme-color" content="<?= $primary_color; ?>">
+		<meta name="msapplication-navbutton-color" content="<?= $primary_color; ?>">
+
 		<?php wp_head(); ?>
 	</head>
 	<?php
@@ -36,62 +37,73 @@
 	?>
 	<body <?php body_class($ip_class); ?>>
 		<?php wp_body_open(); ?>
-		<script type="application/ld+json">
-			[{
-				"@context": "http://schema.org/",
-				"@type": "LocalBusiness",
-				"name": "Site Name",
-				"@id": "https://www.sitename.com.au/",
-				"logo": "https://www.sitename.com.au/wp-content/uploads/2023/01/logo.jpg",
-				"url": "https://www.sitename.com.au/",
-				"email": "admin@sitename.com.au ",
-				"telephone": "+61 123 456 789",
-				"legalName": "Site Name",
-				"contactPoint": {
-					"@type": "ContactPoint",
-					"telephone": "+61 123 456 789",
-					"contactType": "Customer Service"
-				},
-				"address": {
-					"@type": "PostalAddress",
-					"streetAddress": "Street",
-					"addressLocality": "Local",
-					"addressRegion": "Region",
-					"postalCode": "1234",
-					"addressCountry": {
-						"@type": "Country",
-						"name": "Australia"
+		<?php
+			$website_name = get_field('website_name', 'option');
+			$header_logo = get_field('header_logo', 'option');
+			$primary_email_address = get_field('primary_email_address', 'option');
+			$primary_phone_number = get_field('primary_phone_number', 'option');
+			$company_address = get_field('company_address', 'option');
+			$street_address = $company_address['street_address'];
+			$city = $company_address['city'];
+			$region = $company_address['region'];
+			$postal_code = $company_address['postal_code'];
+			$country = $company_address['country'];
+			$facebook = get_field('facebook', 'option');
+			$instagram = get_field('instagram', 'option');
+			$twitter = get_field('twitter', 'option');
+			$linkedin = get_field('linkedin', 'option');
+			$youtube = get_field('youtube', 'option');
+
+			echo '<script type="application/ld+json">
+				[{
+					"@context": "http://schema.org/",
+					"@type": "LocalBusiness",
+					"name": "'. $website_name .'",
+					"@id": "'. get_site_url() .'",
+					"logo": "'. $header_logo .'",
+					"url": "'. get_site_url() .'",
+					"email": "'. $primary_email_address .'",
+					"telephone": "'. $primary_phone_number .'",
+					"legalName": "'. $website_name .'",
+					"contactPoint": {
+						"@type": "ContactPoint",
+						"telephone": "'. $primary_phone_number .'",
+						"contactType": "Customer Service"
+					},
+					"address": {
+						"@type": "PostalAddress",
+						"streetAddress": "'. $street_address .'",
+						"addressLocality": "'. $city .'",
+						"addressRegion": "'. $region .'",
+						"postalCode": "'. $postal_code .'",
+						"addressCountry": {
+							"@type": "Country",
+							"name": "'. $country .'"
+						}
+					},
+					"sameAs": ["'. $facebook .'", "'. $instagram .'", "'. $linkedin .'"],
+					"openingHoursSpecification": [{
+						"@type": "OpeningHoursSpecification",
+						"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+						"opens": "9:00",
+						"closes": "17:50"
+					}, {
+						"@type": "OpeningHoursSpecification",
+						"dayOfWeek": ["Saturday", "Sunday"],
+						"opens": "00:00",
+						"closes": "00:00"
+					}],
+					"priceRange": "N/A"
+					},
+					{
+					"@context": "http://schema.org/",
+					"@type": "Website",
+					"name": "'. $website_name .'",
+					"url": "'. get_site_url() .'"
 					}
-				},
-				"sameAs": ["#", "#"],
-				"openingHoursSpecification": [{
-					"@type": "OpeningHoursSpecification",
-					"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-					"opens": "10:00",
-					"closes": "22:00"
-				}, {
-					"@type": "OpeningHoursSpecification",
-					"dayOfWeek": ["Saturday", "Sunday"],
-					"opens": "00:00",
-					"closes": "00:00"
-				}],
-				"aggregateRating": {
-					"@type": "AggregateRating",
-					"ratingValue": "5",
-					"bestRating": "5",
-					"worstRating": "1",
-					"ratingCount": "10"
-				},
-				"priceRange": "N/A"
-				},
-				{
-				"@context": "http://schema.org/",
-				"@type": "Website",
-				"name": "Site Name",
-				"url": "https://www.sitename.com.au/"
-				}
-			]
-		</script>
+				]
+			</script>';
+		?>
 		<div id="page" class="site">
 			<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'b2me-master-theme' ); ?></a>
 
