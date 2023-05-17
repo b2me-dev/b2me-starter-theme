@@ -698,6 +698,58 @@ h1.entry-title {
   font-size: 64px;
   text-transform: uppercase;
 }
+.page-template-template-sharepoint main#primary {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.sp-list {
+  position: relative;
+}
+.sp-list h2 {
+  padding: 32px;
+  color: #fff;
+  background-color: var(--primary-color);
+  margin-bottom: 30px;
+}
+.sp-list .sp-item.hidden {
+  display: none;
+}
+.sp-list .sp-item-files {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+}
+.sp-list .sp-item-files .sp-item-files-pdf {
+  width: 33.33%;
+  padding: 0 15px;
+  margin-bottom: 30px;
+}
+.sp-list .sp-item-files .sp-item-files-pdf a {
+  display: block;
+  padding: 32px 16px;
+  background-color: #f1f1f1;
+}
+.sp-list .sp-item-files .sp-item-files-pdf a strong {
+  display: inline-block;
+  color: #fff;
+  padding: 8px;
+  background-color: #303030;
+}
+.sp-list .sp-item-files .sp-item-files-pdf a h3 {
+  font-size: 16px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.sp-list .sp-item-files .sp-item-files-pdf a span {
+  display: inline-block;
+  color: #000;
+  padding: 8px 16px;
+  border: 1px solid #000;
+  border-radius: 18px;
+}
 @media only screen and (max-width: 991px) {
   .home main#primary,
   body:not(.home) div#page {
@@ -759,5 +811,18 @@ h1.entry-title {
   }
   .b2-about-template img {
     max-width: 100%;
+  }
+  .sp-list .sp-item-files .sp-item-files-pdf {
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .sp-list .sp-item-files .sp-item-files-pdf {
+    width: 100%;
+  }
+  .sp-list .sp-item-files .sp-item-files-pdf a h3 {
+    white-space: initial;
+    text-overflow: initial;
+    overflow: initial;
   }
 }

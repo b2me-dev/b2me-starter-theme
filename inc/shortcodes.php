@@ -35,6 +35,7 @@
 			add_shortcode('b2-site-twitter', array($this, 'sitetwitter'));
 			add_shortcode('b2-site-linkedin', array($this, 'sitelinkedin'));
 			add_shortcode('b2-site-youtube', array($this, 'siteyoutube'));
+			add_shortcode('b2-list-pdf', array($this, 'listpdf'));
 		}
 
 		public function section($attr, $content = null) {
@@ -808,6 +809,61 @@
 			$social_link = get_field('youtube', 'option');
 			$social_link_element = '<a href="'. $social_link .'" rel="nofollow" class="'. $attr['class'] .'" target="_blank">' . $content . '</a>';
 			return $social_link_element;
+		}
+
+		public function listpdf($attr) {
+			// Options
+			$attr = shortcode_atts(array(
+				'title' => '',
+				'src' => '',
+				'sortby' => '',
+			), $attr);
+
+			$pdf_list = '';
+
+			$folder_path = get_template_directory() . $attr['src'];
+			$pdf_files = glob($folder_path . '/*.pdf');
+
+			if ($attr['sortby'] == "modifiedtime") {
+				usort($pdf_files, function($a, $b) {
+					return filemtime($b) <=> filemtime($a);
+				});
+			} else {
+				usort($pdf_files, function($a, $b) {
+					return filectime($b) <=> filectime($a);
+				});
+			}
+
+			$html_class = '';
+			if (!$pdf_files) {
+				$html_class = 'hidden';		
+			}
+
+			foreach ($pdf_files as $pdf_file) {
+				if ($attr['sortby'] == "modifiedtime") {
+					$time = filemtime($pdf_file);
+				} else {
+					$time = filectime($pdf_file);
+				}
+				$date = date('M d, Y', $time);
+
+				$pdf_list .= '<div class="sp-item-files-pdf">
+					<a href="'. $pdf_file .'" title="Download" download>
+						<strong>' . $date . '</strong>
+						<h3>' . basename($pdf_file) . '</h3>
+						<span>Download</span>
+					</a>
+				</div>';
+			}
+	
+			$html = '<div class="sp-item '. $html_class .'">
+				<h2>'. $attr['title'] .'</h2>
+				<div class="sp-item-files">
+					'. $pdf_list .'
+				</div>
+			</div>';
+
+			return $html;
 		}
 
 	}
