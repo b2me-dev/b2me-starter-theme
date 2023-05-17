@@ -19,7 +19,7 @@
 			add_shortcode('b2-banner-image', array($this, 'bannerimage'));
 			add_shortcode('b2-partners-slider', array($this, 'partners'));
 			add_shortcode('b2-partners-logo', array($this, 'partnerslogo'));
-			add_shortcode('b2-faq-item', array($this, 'faq'));
+			add_shortcode('b2-faq-item', array($this, 'faqitem'));
 			add_shortcode('b2-blogs', array($this, 'blogs'));
 			add_shortcode('b2-sitemap', array($this, 'sitemap'));
 			add_shortcode('b2-social', array($this, 'social'));
@@ -46,10 +46,16 @@
 				'animate' => '',
 				'animate-duration' => '',
 				'animate-delay' => '',
+				'faq-page' => '',
 			), $attr);
 	
 			$element_id = '';
 			$element_animate = '';
+			$faq_attr = '';
+
+			if ($attr['faq-page'] == 'true') {
+				$faq_attr = 'itemscope itemtype="https://schema.org/FAQPage"';
+			}
 
 			// Check if has id
 			if ($attr['id'] != '') {
@@ -62,7 +68,7 @@
 			}
 	
 			// Construct HTML
-			$html = '<section class="'. $attr['class'] .'" '. $element_id .' '. $element_animate .'>
+			$html = '<section class="'. $attr['class'] .'" '. $element_id .' '. $element_animate .' '. $faq_attr .'>
 				' . do_shortcode( $content ) . '
 			</section>';
 	
@@ -474,7 +480,7 @@
 			return $html;
 		}
 
-		public function faq($attr, $content = null) {
+		public function faqitem($attr, $content = null) {
 			// Options
 			$attr = shortcode_atts(array(
 				'class' => '',
@@ -491,13 +497,15 @@
 			}
 	
 			// Construct HTML
-			$html = '<div class="b2-faq-item '. $attr['class'] .'" '. $element_animate .'">
+			$html = '<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="b2-faq-item '. $attr['class'] .'" '. $element_animate .'>
 				<div class="b2-faq-item-q tab-close">
-					<p>'. $attr['question'] .'</p>
+					<p itemprop="name">'. $attr['question'] .'</p>
 					<i class="fa-solid fa-angle-up"></i>
 				</div>
-				<div class="b2-faq-item-a">
+				<div class="b2-faq-item-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+					<span itemprop="text">
 					'. $content .'
+					</span>
 				</div>
 			</div>';
 	
