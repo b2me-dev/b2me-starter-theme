@@ -441,7 +441,7 @@ div#comments {
   border-radius: 6px;
   padding: 16px;
   cursor: pointer;
-  box-shadow: 0 0 12px #ddd;
+  box-shadow: 0 0 20px rgba(0,0,0,0.08);
   transition: all 0.4s ease-in-out;
 }
 .b2-faq-item .b2-faq-item-q.tab-close i {
