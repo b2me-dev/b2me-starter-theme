@@ -36,37 +36,32 @@ h4 span,
 h5 span,
 h6 span {
   display: block;
-  font-size: 16px;
+  font-size: 50%;
 }
 h1 {
-  font-size: 64px;
+  font-size: 4rem;
 }
 h2 {
-  font-size: 32px;
+  font-size: 2.625rem;
 }
 h3 {
-  font-size: 28px;
+  font-size: 2rem;
 }
 h4 {
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 h5 {
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 h6 {
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 p {
   margin: 16px 0;
 }
-.b2-headline {
-  font-size: 64px;
-}
-.b2-subheading {
-  font-size: 32px;
-}
 p,
 .b2-paragraph {
+  font-size: 16px;
   color: inherit;
   font-family: 'Oxygen', sans-serif;
   font-weight: 400;
@@ -87,6 +82,7 @@ p,
   margin: 0 16px 16px 0;
 }
 a {
+  font-size: inherit;
   color: #4169e1;
   text-decoration: none;
   background-color: transparent;
@@ -97,6 +93,7 @@ a:hover {
 }
 .b2-link {
   display: inline-block;
+  font-size: 1.125rem;
   color: #fff;
   text-align: center;
   padding: 16px 8px;
@@ -116,7 +113,7 @@ a:hover {
 .b2-social {
   position: relative;
   display: inline-block;
-  font-size: 18px;
+  font-size: 1.125rem;
   color: #fff;
   text-align: center;
   width: 50px;
@@ -140,7 +137,7 @@ a:hover {
 .b2-btt-toggle a {
   position: relative;
   display: inline-block;
-  font-size: 18px;
+  font-size: 1.125rem;
   color: #fff;
   text-align: center;
   width: 50px;
@@ -197,7 +194,7 @@ form input[type=submit] {
   display: block;
   padding: 16px 0;
   min-width: 320px;
-  font-size: 18px;
+  font-size: 1.125rem;
   color: #fff;
   background-color: var(--primary-color);
   border-radius: 6px;
@@ -354,7 +351,7 @@ div#comments {
   z-index: 2;
 }
 .b2-hp-banner .b2-hp-banner-arrows span {
-  font-size: 64px;
+  font-size: 4rem;
   color: #fff;
   cursor: pointer;
   pointer-events: auto;
@@ -502,7 +499,7 @@ div#comments {
   max-height: 83px;
 }
 .b2-mh-wrap .b2-mh-top-bar-col.col-menu > a {
-  font-size: 19px;
+  font-size: 18px;
   color: #fff;
   width: 50px;
   height: 50px;
@@ -656,11 +653,11 @@ footer ul {
   list-style: none;
 }
 html {
+  font-size: 16px;
   -webkit-text-size-adjust: 100%;
 }
 body {
   font-family: 'Oxygen', sans-serif;
-  font-size: 16px;
   font-weight: 400;
   color: #000;
   line-height: 1;
@@ -695,7 +692,7 @@ body {
   background-color: var(--primary-color);
 }
 h1.entry-title {
-  font-size: 64px;
+  font-size: 4rem;
   text-transform: uppercase;
 }
 .page-template-template-sharepoint main#primary {
@@ -750,6 +747,45 @@ h1.entry-title {
   border: 1px solid #000;
   border-radius: 18px;
 }
+@media only screen and (max-width: 1700px) {
+  html {
+    font-size: 15px;
+  }
+}
+@media only screen and (max-width: 1550px) {
+  html {
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 1440px) {
+  html {
+    font-size: 13px;
+  }
+}
+@media only screen and (max-width: 1366px) {
+  html {
+    font-size: 12px;
+  }
+}
+@media only screen and (max-width: 1080px) {
+  html {
+    font-size: 11px;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2.4rem;
+  }
+  h3 {
+    font-size: 2rem;
+  }
+  h4,
+  h5,
+  h6 {
+    font-size: 1.5rem;
+  }
+}
 @media only screen and (max-width: 991px) {
   .home main#primary,
   body:not(.home) div#page {
@@ -757,21 +793,6 @@ h1.entry-title {
   }
   .b2-btt-toggle {
     bottom: 90px;
-  }
-  h1,
-  h1.entry-title {
-    font-size: 44px;
-  }
-  h2 {
-    font-size: 24px;
-  }
-  h3 {
-    font-size: 20px;
-  }
-  h4,
-  h5,
-  h6 {
-    font-size: 16px;
   }
   section {
     padding: 32px 0;
@@ -788,6 +809,7 @@ h1.entry-title {
     margin-bottom: 16px;
   }
   .b2-link {
+    font-size: 16px;
     padding: 12px 4px;
   }
   form button,
