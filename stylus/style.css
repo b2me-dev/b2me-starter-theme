@@ -83,7 +83,7 @@ p,
 }
 a {
   font-size: inherit;
-  color: #4169e1;
+  color: var(--primary-color);
   text-decoration: none;
   background-color: transparent;
   transition: all 0.2s ease-in;
@@ -96,9 +96,8 @@ a:hover {
   font-size: 1.125rem;
   color: #fff;
   text-align: center;
-  padding: 16px 8px;
-  min-width: 320px;
-  margin: 16px 0;
+  padding: 1em;
+  margin: 1em 0;
   background-color: var(--primary-color);
   border-radius: 6px;
 }
@@ -190,10 +189,10 @@ form textarea {
   resize: none;
 }
 form button,
-form input[type=submit] {
+form input[type=submit],
+form input[type=button] {
   display: block;
-  padding: 16px 0;
-  min-width: 320px;
+  padding: 1em;
   font-size: 1.125rem;
   color: #fff;
   background-color: var(--primary-color);
@@ -203,7 +202,8 @@ form input[type=submit] {
   transition: all 0.2s ease-in;
 }
 form button:hover,
-form input[type=submit]:hover {
+form input[type=submit]:hover,
+form input[type=button]:hover {
   opacity: 0.7;
 }
 .single-post main#primary,
@@ -810,10 +810,11 @@ h1.entry-title {
   }
   .b2-link {
     font-size: 16px;
-    padding: 12px 4px;
   }
   form button,
-  form input[type=submit] {
+  form input[type=submit],
+  form input[type=button] {
+    font-size: 16px;
     min-width: auto;
     width: 100%;
   }
