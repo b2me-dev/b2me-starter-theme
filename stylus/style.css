@@ -112,7 +112,7 @@ a:hover {
 .b2-social {
   position: relative;
   display: inline-block;
-  font-size: 1.125rem;
+  font-size: 18px;
   color: #fff;
   text-align: center;
   width: 50px;
@@ -136,7 +136,7 @@ a:hover {
 .b2-btt-toggle a {
   position: relative;
   display: inline-block;
-  font-size: 1.125rem;
+  font-size: 18px;
   color: #fff;
   text-align: center;
   width: 50px;
@@ -784,6 +784,11 @@ h1.entry-title {
   h5,
   h6 {
     font-size: 1.5rem;
+  }
+}
+@media only screen and (max-width: 1199px) {
+  .b2-row .b2-col.col-3 {
+    width: 50%;
   }
 }
 @media only screen and (max-width: 991px) {
