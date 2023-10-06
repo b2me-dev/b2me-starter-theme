@@ -206,6 +206,55 @@ form input[type=submit]:hover,
 form input[type=button]:hover {
   opacity: 0.7;
 }
+.b2-custom-select {
+  position: relative;
+}
+.b2-custom-select select {
+  display: none;
+}
+.b2-custom-select .b2-custom-select-container {
+  position: relative;
+}
+.b2-custom-select .b2-custom-select-container p {
+  padding: 16px;
+  font-size: 1rem;
+  border: 2px solid rgba(29,29,29,0.1);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.b2-custom-select .b2-custom-select-container i {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.b2-custom-select .b2-custom-select-container ul {
+  position: absolute;
+  top: 95%;
+  left: 0;
+  width: 100%;
+  max-height: 200px;
+  border: 2px solid rgba(29,29,29,0.1);
+  border-top: none;
+  overflow-y: scroll;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+  display: none;
+  z-index: 1;
+}
+.b2-custom-select .b2-custom-select-container ul li {
+  padding: 16px 11px;
+  border-radius: 6px;
+  max-width: 95%;
+  margin: 0 auto;
+  cursor: pointer;
+}
+.b2-custom-select .b2-custom-select-container ul li:hover {
+  color: #fff;
+  background-color: var(--primary-color);
+}
 .single-post main#primary,
 .page-template-default main#primary,
 .page-template-template-default-nobanner main#primary,

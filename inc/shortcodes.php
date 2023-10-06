@@ -36,6 +36,7 @@
 			add_shortcode('b2-site-linkedin', array($this, 'sitelinkedin'));
 			add_shortcode('b2-site-youtube', array($this, 'siteyoutube'));
 			add_shortcode('b2-list-pdf', array($this, 'listpdf'));
+			add_shortcode('b2-custom-select', array($this, 'customselect'));
 		}
 
 		public function section($attr, $content = null) {
@@ -868,6 +869,45 @@
 				<h2>'. $attr['title'] .'</h2>
 				<div class="sp-item-files">
 					'. $pdf_list .'
+				</div>
+			</div>';
+
+			return $html;
+		}
+
+		public function customselect($attr) {
+			// Options
+			$attr = shortcode_atts(array(
+				'id' => '',
+				'class' => '',
+				'label' => '',
+				'options' => '',
+			), $attr);
+
+			$options = $attr['options'];
+			$options_arr = explode(",", $options);
+			$options_count = count($options_arr);
+			$default_value = '';
+			$options_list_1 = '';
+			$options_list_2 = '';
+			for ($i = 0; $i < $options_count; $i++) {
+				$default_value = $options_arr[0];
+				$options_list_1 .= '<option value="'. $options_arr[$i] .'">'. $options_arr[$i] .'</option>';
+				$options_list_2 .= '<li data-value="'. $options_arr[$i] .'">'. $options_arr[$i] .'</li>';
+			}
+
+			$label_element = '';
+			if ($attr['label']) {
+				$label_element = '<label for="'. $attr['id'] .'">'. $attr['label'] .'</label>';
+			}
+
+			$html = '<div class="b2-custom-select '. $attr['class'] .'">
+				'. $label_element .'
+				<select name="'. $attr['id'] .'" id="'. $attr['id'] .'">'. $options_list_1 .'</select>
+				<div class="b2-custom-select-container">
+					<p>'. $default_value .'</p>
+					<i class="fa-solid fa-angle-down"></i>
+					<ul>'. $options_list_2 .'</ul>
 				</div>
 			</div>';
 

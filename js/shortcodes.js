@@ -4,6 +4,7 @@
 		initialize: function() {
 			this.homepageSlideshow();
 			this.partners();
+			this.customSelect();
 		},
 		homepageSlideshow: function() {
 			var slider = jQuery('.b2-hp-banner-slide'),
@@ -81,6 +82,32 @@
                 ]
             });
 		},
+		customSelect: function() {
+			var custom_select = jQuery('.b2-custom-select-container p');
+
+			jQuery(document).on('click', function(event) {
+				if (!custom_select.is(event.target) && custom_select.has(event.target).length === 0) {
+					custom_select.parent().find('i').removeClass('fa-angle-up').addClass('fa-angle-down');
+					custom_select.parent().find('ul').hide();
+				}
+			});
+			
+			custom_select.click(function() {
+				custom_select.parent().find('i').removeClass('fa-angle-up').addClass('fa-angle-down');
+				custom_select.parent().find('ul').hide();
+
+				jQuery(this).parent().find('i').addClass('fa-angle-up').removeClass('fa-angle-down');
+				jQuery(this).parent().find('ul').show();
+			});
+
+			jQuery(document).on('click', '.b2-custom-select-container ul li', function() {
+				var value = jQuery(this).data('value');
+				jQuery(this).parent().parent().parent().find('select').val(value).change();
+				jQuery(this).parent().parent().find('p').html(value);
+				jQuery(this).parent().parent().find('ul').hide();
+				jQuery(this).parent().parent().find('i').removeClass('fa-angle-up').addClass('fa-angle-down');
+			});
+		}
 	}
 
 	jQuery(document).ready(function() {
