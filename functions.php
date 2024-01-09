@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '2023.5' );
+	define( '_S_VERSION', '2024.1' );
 }
 
 /**
@@ -149,7 +149,7 @@ function b2me_master_theme_scripts() {
 	wp_enqueue_style( 'b2me-slick', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css', array(), _S_VERSION );
 
 	// Main CSS
-	wp_enqueue_style( 'b2me-global-style', 'https://resources.b2me.marketing/assets/css/global.css', array(), null);
+	wp_enqueue_style( 'b2me-global-styles', get_stylesheet_directory_uri() . '/css/global.css', array(), null);
 	wp_enqueue_style( 'b2me-master-theme-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_enqueue_style( 'main-style', get_stylesheet_directory_uri() . '/stylus/style.css', array(), null);
 
@@ -158,7 +158,7 @@ function b2me_master_theme_scripts() {
 	wp_enqueue_script( 'b2me-aos', 'https://unpkg.com/aos@next/dist/aos.js', ['jquery'], _S_VERSION, true );
 
 	// Main JS
-	wp_enqueue_script( 'b2me-global-scripts', 'https://resources.b2me.marketing/assets/js/global.js', ['jquery'], null);
+	wp_enqueue_script( 'b2me-global-script',  get_stylesheet_directory_uri() . '/js/global.js', ['jquery'], null);
 	wp_enqueue_script( 'shortcodes-scripts', get_stylesheet_directory_uri() . '/js/shortcodes.js', ['jquery']);
 	wp_enqueue_script( 'main-scripts', get_stylesheet_directory_uri() . '/js/app.js', ['jquery']);
 
