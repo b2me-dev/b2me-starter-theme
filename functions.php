@@ -222,3 +222,19 @@ function add_file_types_to_uploads($file_types){
 	return $file_types;
 }
 add_filter('upload_mimes', 'add_file_types_to_uploads');
+
+/* Disable visual editor on page edit */
+function disable_visual_editor_on_pages() {
+    global $pagenow;
+
+    if ($pagenow == 'post.php' && isset($_GET['post'])) {
+        $post_id = $_GET['post'];
+        $post_type = get_post_type($post_id);
+
+        // Check if it's a page
+        if ($post_type == 'page') {
+            add_filter('user_can_richedit', '__return_false', 50);
+        }
+    }
+}
+add_action('admin_init', 'disable_visual_editor_on_pages');
