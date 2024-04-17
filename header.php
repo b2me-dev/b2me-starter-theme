@@ -53,6 +53,19 @@
 			$twitter = get_field('twitter', 'option');
 			$linkedin = get_field('linkedin', 'option');
 			$youtube = get_field('youtube', 'option');
+			$openingdays = get_field('day_of_week', 'option');
+			$openingdays_string = json_encode($openingdays);
+			$time_opens = get_field('time_opens', 'option');
+			$time_closes = get_field('time_closes', 'option');
+
+			$allDaysOfWeek = array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday');
+			$uncheckedDays = array();
+			foreach ($allDaysOfWeek as $day) {
+				if (!in_array($day, $openingdays)) {
+					$uncheckedDays[] = '"' . $day . '"';
+				}
+			}
+			$formattedUncheckedDays = '[' . implode(', ', $uncheckedDays) . ']';
 
 			echo '<script type="application/ld+json">
 				[{
@@ -84,12 +97,12 @@
 					"sameAs": ["'. $facebook .'", "'. $instagram .'", "'. $linkedin .'"],
 					"openingHoursSpecification": [{
 						"@type": "OpeningHoursSpecification",
-						"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-						"opens": "9:00",
-						"closes": "17:50"
+						"dayOfWeek": '. $openingdays_string .',
+						"opens": "'. $time_opens .'",
+						"closes": "'. $time_closes .'"
 					}, {
 						"@type": "OpeningHoursSpecification",
-						"dayOfWeek": ["Saturday", "Sunday"],
+						"dayOfWeek": '. $formattedUncheckedDays .',
 						"opens": "00:00",
 						"closes": "00:00"
 					}],

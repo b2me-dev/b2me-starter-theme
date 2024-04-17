@@ -29,6 +29,12 @@ function my_theme_settings_page() {
             'menu_title'	=> 'Ratings',
             'parent_slug'	=> 'theme-settings',
         ));
+
+        acf_add_options_sub_page(array(
+            'page_title' 	=> 'Opening Hours',
+            'menu_title'	=> 'Opening Hours',
+            'parent_slug'	=> 'theme-settings',
+        ));
         
     }
 }
