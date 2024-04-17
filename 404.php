@@ -23,14 +23,9 @@ get_header();
 		?>
 
 		<section class="error-404 not-found">
-			<div class="b2-row v-center">
-				<div class="b2-col col-8 b2-text-center">
-					<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'b2me-master-theme' ); ?></h1>
-					<p>It looks like nothing was found at this location.</p>
-				</div>
-				<div class="b2-col col-4">
-					<img src="<?= get_stylesheet_directory_uri(); ?>/images/global/404-image.jpg" alt="404 Page illustration" class="b2-img-responsive">
-				</div>
+			<div class="b2-inner-content b2-text-center">
+				<h1 class="page-title">Oops!</h1>
+				<p>Sorry we couldn't find what you were looking for... in the meantime, check out our awesome services below or drop us a message.</p>
 			</div>
 		</section><!-- .error-404 -->
 
