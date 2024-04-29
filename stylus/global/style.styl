@@ -47,6 +47,24 @@ section
 .b2-bg-primary-color
 	background-color: var(--primary-color)
 
+.b2-parallax-bg
+	background-size: cover
+	background-position: center
+	background-repeat: no-repeat
+	background-attachment: fixed
+
+.b2-curved-corners
+	&.top-curve
+		border-top-right-radius: 50% 5%
+		border-top-left-radius: 50% 5%
+
+	&.bottom-curve
+		border-top-right-radius: 50% 5%
+		border-top-left-radius: 50% 5%
+
+.b2-boxshadow
+	box-shadow: 0 0 20px rgba(0, 0, 0, .08);
+
 .b2-inner-content
 	max-width: 85.31%;
 	margin: 0 auto
