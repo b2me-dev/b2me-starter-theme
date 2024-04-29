@@ -32,6 +32,16 @@ section {
 .b2-boxshadow {
   box-shadow: 0 0 20px rgba(0,0,0,0.08);
 }
+.b2-center-fix {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.b2-img-center {
+  display: block;
+  margin: 0 auto;
+}
 .b2-inner-content {
   max-width: 85.31%;
   margin: 0 auto;
