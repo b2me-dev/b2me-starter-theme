@@ -23,6 +23,7 @@
 			add_shortcode('b2-blogs', array($this, 'blogs'));
 			add_shortcode('b2-sitemap', array($this, 'sitemap'));
 			add_shortcode('b2-social', array($this, 'social'));
+			add_shortcode('b2-sociallinklist', array($this, 'sociallinklist'));
 			add_shortcode('b2-stylesheetdirectory', array($this, 'stylesheetdirectory'));
 			add_shortcode('b2-site-name', array($this, 'sitename'));
 			add_shortcode('b2-site-header-logo', array($this, 'siteheaderlogo'));
@@ -693,6 +694,45 @@
 			</a>';
 	
 			return $html;
+		}
+
+		public function sociallinklist($attr) {
+			// Options
+			$attr = shortcode_atts(array(
+				'class' => '',
+			), $attr);
+
+			$field_group_key = 'group_643e2704e531a'; 
+			$fields = acf_get_fields($field_group_key);
+			$social_item = '';
+
+			if ($fields) {
+				foreach ($fields as $field) {
+					$platform_name = $field['name'];
+					$platform_link = get_field($platform_name, 'option'); 
+					
+					switch ($platform_name) {
+						case "facebook":
+							$social_item .= '<li><a href="'. $platform_link .'" target="_blank" rel="nofollow"><i class="fa-brands fa-facebook-f"></i></a></li>';
+						break;
+						case "instagram":
+							$social_item .= '<li><a href="'. $platform_link .'" target="_blank" rel="nofollow"><i class="fa-brands fa-instagram"></i></a></li>';
+						break;
+						case "twitter":
+							$social_item .= '<li><a href="'. $platform_link .'" target="_blank" rel="nofollow"><i class="fa-brands fa-x-twitter"></i></a></li>';
+						break;
+						case "linkedin":
+							$social_item .= '<li><a href="'. $platform_link .'" target="_blank" rel="nofollow"><i class="fa-brands fa-linkedin-in"></i></a></li>';
+						break;
+						case "youtube":
+							$social_item .= '<li><a href="'. $platform_link .'" target="_blank" rel="nofollow"><i class="fa-brands fa-youtube"></i></a></li>';
+						break;
+					}
+				}
+			}
+
+			$social_link = '<ul>' . $social_item . '</ul>';
+			return $social_link;
 		}
 
 		public function stylesheetdirectory() {

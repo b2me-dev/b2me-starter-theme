@@ -145,7 +145,7 @@ function b2me_master_theme_scripts() {
 
 	// CSS Resources
 	wp_enqueue_style( 'b2me-aos', 'https://unpkg.com/aos@next/dist/aos.css');
-	wp_enqueue_style( 'b2me-fa-icons', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css');
+	wp_enqueue_style( 'b2me-fa-icons', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css');
 	wp_enqueue_style( 'b2me-slick', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css', array(), _S_VERSION );
 
 	// Main CSS
