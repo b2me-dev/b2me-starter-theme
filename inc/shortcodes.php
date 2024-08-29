@@ -500,7 +500,7 @@
 			// Construct HTML
 			$html = '<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="b2-faq-item '. $attr['class'] .'" '. $element_animate .'>
 				<div class="b2-faq-item-q tab-close">
-					<p itemprop="name">'. $attr['question'] .'</p>
+					<h3 itemprop="name">'. $attr['question'] .'</h3>
 					<i class="fa-solid fa-angle-up"></i>
 				</div>
 				<div class="b2-faq-item-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
